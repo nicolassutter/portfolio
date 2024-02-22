@@ -1,0 +1,64 @@
+---
+import { Button } from './Button'
+import { type profile as Profile } from '../modules/profile'
+
+export interface Props {
+  profile: typeof Profile
+}
+
+const { profile } = Astro.props
+---
+
+<footer
+  role='contentinfo'
+  class='bg-gray-900 col-start-1 col-span-full py-12 px-4 mt-12'
+>
+  <div class='w-full max-w-5xl mx-auto'>
+    <div class='grid md:grid-cols-2 gap-20'>
+      <div>
+        <p>
+          I was thinking about adding a paragraph here but then I realized I
+          didn't know what to write, so here we are.
+        </p>
+
+        <Button
+          tag='a'
+          href={`mailto:${profile.email}`}
+          class='mt-6'
+        >
+          Send me an email
+          <i class='mdi:send hover:opacity-80 transition-opacity'></i>
+        </Button>
+      </div>
+
+      <div>
+        <h3 class='font-bold text-xs'>Contact info</h3>
+        <p class='text-sm mt-4'>{profile.email}</p>
+        <p class='text-sm'>67000, Strasbourg</p>
+      </div>
+    </div>
+
+    <div class='mt-30 flex flex-col md:flex-row items-center gap-4'>
+      <p class='text-gray-500'>
+        {new Date().getFullYear()} - {profile.name} - Interesting note on
+        copyright
+      </p>
+
+      <ul class='md:ml-auto'>
+        <li>
+          <a
+            href={profile.github}
+            title='Github'
+            target='_blank'
+            rel='noopener noreferer'
+          >
+            <i class='grommet-icons:github hover:opacity-80 transition-opacity'
+            ></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <a href="/rss.xml" class="text-gray-500 underline mt-2" target="_blank" rel="noopener noreferer">RSS feed</a>
+  </div>
+</footer>
