@@ -1,6 +1,6 @@
 ---
 title: Accessibility
-subtitle: Dévelopment
+subtitle: Development
 icon: /a42.svg
 ---
 
