@@ -1,4 +1,4 @@
-import MarkdownIt from 'markdown-it'
+import { marked } from 'marked'
 import { Feed } from 'feed'
 import { profile } from '../modules/profile'
 import { getCollection } from 'astro:content'
@@ -7,8 +7,6 @@ export async function GET() {
   const astroPosts = await getCollection('posts')
 
   const SITE_URL = 'https://sutter-nicolas.com'
-
-  const md = new MarkdownIt()
 
   const feed = new Feed({
     title: "Nicolas Sutter's blog",
@@ -38,7 +36,9 @@ export async function GET() {
       title: post.data.title,
       id: post.slug,
       link: `${SITE_URL}/blog/${post.slug}`,
-      content: md.render(post.body ?? ''),
+      content: marked.parse(post.body ?? '', {
+        async: false,
+      }),
       date: new Date(),
       author: [
         {

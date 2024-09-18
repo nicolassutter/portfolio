@@ -1,2 +1,2 @@
-import MarkdownIt from 'markdown-it'
-export const md = new MarkdownIt()
+import { marked } from 'marked'
+export const md = marked

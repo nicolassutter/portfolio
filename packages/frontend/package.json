@@ -13,7 +13,7 @@
     "@astrojs/solid-js": "^4.0.1",
     "cheerio": "1.0.0-rc.12",
     "feed": "^4.2.2",
-    "markdown-it": "^14.0.0",
+    "marked": "^14.1.2",
     "prismjs": "^1.29.0",
     "solid-js": "^1.8.15",
     "swiper": "^11.0.6"

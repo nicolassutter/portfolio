@@ -36,7 +36,9 @@ const posts = await getBlogPosts()
 <Layout
   meta={{
     title: profile.name,
-    description: md.render(profile.bio),
+    description: md.parse(profile.bio, {
+      async: false,
+    }),
     image: '/avatar.jpg',
     url: 'https://sutter-nicolas.com/',
   }}
@@ -74,7 +76,7 @@ const posts = await getBlogPosts()
 
     <div
       class='mt-12'
-      set:html={md.render(profile.bio)}
+      set:html={md.parse(profile.bio)}
     />
   </header>
 
@@ -101,7 +103,7 @@ const posts = await getBlogPosts()
       <ul class='mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
         {
           skills.map((skill) => (
-            <li class='rounded-xl bg-gray-700 p-6'>
+            <li class='rounded-xl bg-zinc-900 p-6'>
               <div class='flex flex-row-reverse justify-end gap-4'>
                 <div>
                   <h3 class='font-bold text-xl'>{skill.data.title}</h3>
@@ -116,7 +118,7 @@ const posts = await getBlogPosts()
 
               <div
                 class='mt-6'
-                set:html={md.render(skill.body)}
+                set:html={md.parse(skill.body)}
               />
             </li>
           ))
@@ -141,7 +143,9 @@ const posts = await getBlogPosts()
         <ProjectsSwiper
           projects={projects.map((project) => ({
             ...project,
-            body: md.render(project.body),
+            body: md.parse(project.body, {
+              async: false,
+            }),
           }))}
           client:load
         />

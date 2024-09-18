@@ -25,7 +25,9 @@ const { Content } = await post.render()
 <Layout
   meta={{
     title: profile.name,
-    description: md.render(profile.bio),
+    description: md.parse(profile.bio, {
+      async: false,
+    }),
     image: '/avatar.jpg',
     url: 'https://sutter-nicolas.com/',
   }}
@@ -38,7 +40,7 @@ const { Content } = await post.render()
         href='/'
       >
         <i class='mdi:home text-xl'></i>
-         Home
+        Home
       </a>
     </nav>
 

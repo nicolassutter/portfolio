@@ -30,7 +30,7 @@ export const PostsSwiper: Component<{
       {props.posts.map((post) => (
         <Dynamic
           component='swiper-slide'
-          class='h-auto rounded-xl bg-gray-700 p-6 flex gap-5 flex-col-reverse justify-end'
+          class='h-auto rounded-xl bg-zinc-900 p-6 flex gap-5 flex-col-reverse justify-end'
         >
           <div class='h-full flex flex-col'>
             <h3 class='font-bold text-xl'>{post.title}</h3>
@@ -89,7 +89,7 @@ export const ProjectsSwiper: Component<{
       {props.projects.map((project) => (
         <Dynamic
           component={'swiper-slide'}
-          class='rounded-xl bg-gray-700 p-6 h-auto flex flex-col'
+          class='rounded-xl bg-zinc-900 p-6 h-auto flex flex-col'
         >
           <h3 class='font-bold text-xl'>{project.data.title}</h3>
 
@@ -99,7 +99,7 @@ export const ProjectsSwiper: Component<{
               <ul class='flex flex-wrap gap-2 mt-4'>
                 {project.data.stack?.map((tech) => (
                   <li>
-                    <span class='block bg-gray-800 text-xs p-1 rounded-md'>
+                    <span class='block bg-zinc-700 font-medium text-zinc-200 text-xs p-1 rounded-md'>
                       {tech}
                     </span>
                   </li>
@@ -109,7 +109,7 @@ export const ProjectsSwiper: Component<{
           )}
 
           <div
-            class='mt-8 [&_a]:(underline text-pink transition-opacity) [&_a]:hover:(opacity-80) [&_p:not(:first-child)]:(mt-2)'
+            class='mt-8 [&_a]:(underline text-white font-semibold transition-opacity) [&_a]:hover:(opacity-80) [&_p:not(:first-child)]:(mt-2)'
             innerHTML={project.body}
           />
 
