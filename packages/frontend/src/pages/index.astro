@@ -100,10 +100,18 @@ const posts = await getBlogPosts()
         various professional experiences, I have acquired numerous technical
         skills.
       </p>
-      <ul class='mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <ul class='mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-6'>
         {
           skills.map((skill) => (
-            <li class='rounded-xl bg-zinc-900 p-6'>
+            <li
+              class:list={[
+                'rounded-xl bg-zinc-900 p-6',
+                // first child
+                'sm:[&:nth-child(1)]:col-span-2 md:[&:nth-child(1)]:(row-span-2 col-span-1)',
+                // second child
+                'sm:[&:nth-child(2)]:row-span-2 md:[&:nth-child(2)]:(col-span-2 row-span-1)',
+              ]}
+            >
               <div class='flex flex-row-reverse justify-end gap-4'>
                 <div>
                   <h3 class='font-bold text-xl'>{skill.data.title}</h3>
