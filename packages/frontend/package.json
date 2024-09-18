@@ -22,6 +22,7 @@
     "@iconify-json/grommet-icons": "^1.1.10",
     "@iconify-json/lucide": "^1.1.167",
     "@iconify-json/mdi": "^1.1.64",
+    "@iconify-json/simple-icons": "^1.2.3",
     "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.11.19",
     "@types/prismjs": "^1.26.3",
