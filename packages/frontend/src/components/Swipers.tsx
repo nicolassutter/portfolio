@@ -4,6 +4,7 @@ import type { Article } from '../../types/types'
 import { Button } from './Button'
 import { Dynamic } from 'solid-js/web'
 import type { CollectionEntry } from 'astro:content'
+import { For } from 'solid-js'
 
 export const PostsSwiper: Component<{
   posts: (Article & { slug?: string })[]
@@ -27,42 +28,42 @@ export const PostsSwiper: Component<{
         },
       }}
     >
-      {props.posts.map((post) => (
-        <Dynamic
-          component='swiper-slide'
-          class='h-auto rounded-xl bg-zinc-900 p-6 flex gap-5 flex-col-reverse justify-end'
-        >
-          <div class='h-full flex flex-col'>
-            <h3 class='font-bold text-xl'>{post.title}</h3>
+      <For each={props.posts}>
+        {(post) => (
+          <Dynamic
+            component='swiper-slide'
+            class='h-auto rounded-xl bg-zinc-900 p-6 flex gap-5 flex-col-reverse justify-end relative'
+          >
+            <div class='h-full flex flex-col'>
+              <h3 class='font-bold text-xl'>{post.title}</h3>
 
-            {(post.url || post.slug) && (
-              <div class='mt-auto'>
-                <Button
-                  tag='a'
-                  href={post.url ?? `/blog/${post.slug}`}
-                  class='max-w-[unset] w-full mt-8'
-                  target={post.url ? '_blank' : undefined}
-                  rel={post.url ? 'noopener noreferrer' : undefined}
-                >
-                  Read
-                  {!post.slug && (
-                    <>
-                      <i class='lucide:external-link text-lg'></i>
-                      <span class='sr-only'>in new tab</span>
-                    </>
-                  )}
-                </Button>
-              </div>
-            )}
-          </div>
+              {(post.url || post.slug) && (
+                <div class='mt-auto'>
+                  <a
+                    href={post.url ?? `/blog/${post.slug}`}
+                    class='absolute inset-0'
+                    target={post.url ? '_blank' : ''}
+                    rel={post.url ? 'noopener noreferrer' : ''}
+                  >
+                    <span class='sr-only'>Read</span>
+                    {!post.slug && (
+                      <>
+                        <span class='sr-only'>in new tab</span>
+                      </>
+                    )}
+                  </a>
+                </div>
+              )}
+            </div>
 
-          <img
-            src={post.thumbnail}
-            alt=''
-            class='rounded-lg w-full aspect-[16/9] object-cover'
-          />
-        </Dynamic>
-      ))}
+            <img
+              src={post.thumbnail}
+              alt=''
+              class='rounded-lg w-full aspect-[16/9] object-cover'
+            />
+          </Dynamic>
+        )}
+      </For>
     </SwiperWrapper>
   )
 }
@@ -86,50 +87,52 @@ export const ProjectsSwiper: Component<{
         },
       }}
     >
-      {props.projects.map((project) => (
-        <Dynamic
-          component={'swiper-slide'}
-          class='rounded-xl bg-zinc-900 p-6 h-auto flex flex-col'
-        >
-          <h3 class='font-bold text-xl'>{project.data.title}</h3>
+      <For each={props.projects}>
+        {(project) => (
+          <Dynamic
+            component={'swiper-slide'}
+            class='rounded-xl bg-zinc-900 p-6 h-auto flex flex-col'
+          >
+            <h3 class='font-bold text-xl'>{project.data.title}</h3>
 
-          {project.data.stack && (
-            <>
-              <span class='sr-only'>Technologies&nbsp;:</span>
-              <ul class='flex flex-wrap gap-2 mt-4'>
-                {project.data.stack?.map((tech) => (
-                  <li>
-                    <span class='block bg-zinc-700 font-medium text-zinc-200 text-xs p-1 rounded-md'>
-                      {tech}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+            {project.data.stack && (
+              <>
+                <span class='sr-only'>Technologies&nbsp;:</span>
+                <ul class='flex flex-wrap gap-2 mt-4'>
+                  {project.data.stack?.map((tech) => (
+                    <li>
+                      <span class='block bg-zinc-700 font-medium text-zinc-200 text-xs p-1 rounded-md'>
+                        {tech}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
 
-          <div
-            class='mt-8 [&_a]:(underline text-white font-semibold transition-opacity) [&_a]:hover:(opacity-80) [&_p:not(:first-child)]:(mt-2)'
-            innerHTML={project.body}
-          />
+            <div
+              class='mt-8 [&_a]:(underline text-white font-semibold transition-opacity) [&_a]:hover:(opacity-80) [&_p:not(:first-child)]:(mt-2)'
+              innerHTML={project.body}
+            />
 
-          {project.data.link && (
-            <div class='mt-auto'>
-              <Button
-                tag='a'
-                href={project.data.link}
-                class='max-w-[unset] w-full mt-8'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Open
-                <i class='lucide:external-link text-lg'></i>
-                <span class='sr-only'>in new tab</span>
-              </Button>
-            </div>
-          )}
-        </Dynamic>
-      ))}
+            {project.data.link && (
+              <div class='mt-auto'>
+                <Button
+                  tag='a'
+                  href={project.data.link}
+                  class='max-w-[unset] w-full mt-8'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Open
+                  <i class='lucide:external-link text-lg'></i>
+                  <span class='sr-only'>in new tab</span>
+                </Button>
+              </div>
+            )}
+          </Dynamic>
+        )}
+      </For>
     </SwiperWrapper>
   )
 }
