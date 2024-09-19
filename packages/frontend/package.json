@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^4.0.1",
+    "@astrojs/solid-js": "^4.4.2",
     "cheerio": "1.0.0-rc.12",
     "feed": "^4.2.2",
     "marked": "^14.1.2",
@@ -22,8 +22,6 @@
     "@iconify-json/grommet-icons": "^1.1.10",
     "@iconify-json/lucide": "^1.1.167",
     "@iconify-json/mdi": "^1.1.64",
-    "@iconify-json/simple-icons": "^1.2.3",
-    "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.11.19",
     "@types/prismjs": "^1.26.3",
     "@unocss/preset-icons": "^0.58.5",
@@ -31,7 +29,7 @@
     "@unocss/preset-wind": "^0.58.5",
     "@unocss/reset": "^0.58.5",
     "@unocss/transformer-variant-group": "^0.58.5",
-    "astro": "^4.4.2",
+    "astro": "^4.15.7",
     "typescript": "^5.3.3",
     "unocss": "^0.58.5"
   }
