@@ -1,3 +1,5 @@
+// THIS FILE NEEDS TO BE TSX FOR UNO CSS TO SCAN
+
 export const profile = {
   name: 'Sutter Nicolas',
   bio: `I am currently a freelance full-stack developer living in Strasbourg, France.
@@ -9,8 +11,18 @@ On a more serious note, I am passionate about web development and I am always lo
 I am looking for missions mostly based on React, Vue.js or SolidJS (❤️), Node.js and TypeScript.
 I believe to be a good fit for a team that values quality, performance and maintainability; especially with all the JS based tech coming out these days.`,
   email: 'contact@sutter-nicolas.com',
-  github: 'https://github.com/nicolassutter',
-  malt: 'https://www.malt.fr/profile/nicolassutter1',
-  codeur: 'https://www.codeur.com/-sutternicolas',
-  linkedin: 'https://www.linkedin.com/in/nicolas-sutter-abb18b188/',
+  socials: {
+    Github: {
+      url: 'https://github.com/nicolassutter',
+      icon: 'grommet-icons:github',
+    },
+    Malt: {
+      url: 'https://www.malt.fr/profile/nicolassutter1',
+      icon: 'custom:malt',
+    },
+    LinkedIn: {
+      url: 'https://www.linkedin.com/in/nicolas-sutter-abb18b188/',
+      icon: 'grommet-icons:linkedin',
+    },
+  } satisfies Record<string, { url: string; icon: string }>,
 }

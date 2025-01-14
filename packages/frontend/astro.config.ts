@@ -7,7 +7,12 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [UnoCSS(), solidJs()],
+  integrations: [
+    UnoCSS({
+      injectReset: true,
+    }),
+    solidJs(),
+  ],
   vite: {
     resolve: {
       alias: {

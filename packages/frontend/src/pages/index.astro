@@ -9,6 +9,7 @@ import { PostsSwiper, ProjectsSwiper } from '../components/Swipers'
 import type { Article } from '../../types/types'
 import Footer from '../components/Footer.astro'
 import Socials from '../components/Socials.astro'
+import { Image } from 'astro:assets'
 
 const projects = await getCollection('projects')
 const skills = await getCollection('skills')
@@ -45,18 +46,22 @@ const posts = await getBlogPosts()
 >
   <!-- <SkipLinks></SkipLinks> -->
   <header role='banner'>
-    <div class='relative w-[max-content] group'>
-      <img
+    <div class='relative w-56 md:w-72 aspect-square group'>
+      <Image
         src='/avatar.jpg'
         alt=''
-        class='rounded-full w-56 h-56 md:w-72 md:h-72 object-cover relative z-2'
+        width={200}
+        height={200}
+        class='h-full w-full object-cover rounded-full relative z-2'
       />
 
       <!-- This isn't me btw -->
-      <img
+      <Image
         src='/keanu.jpg'
         alt=''
-        class='opacity-0 absolute inset-0 group-hover:opacity-100 rounded-full object-cover z-3 transition-opacity'
+        width={200}
+        height={200}
+        class='opacity-0 absolute inset-0 h-full w-full group-hover:opacity-100 rounded-full object-cover z-3 transition-opacity'
       />
 
       <span
@@ -121,6 +126,7 @@ const posts = await getBlogPosts()
                 <img
                   class='w-14 h-14'
                   src={skill.data.icon}
+                  alt=''
                 />
               </div>
 
@@ -155,7 +161,6 @@ const posts = await getBlogPosts()
               async: false,
             }),
           }))}
-          client:load
         />
       </div>
     </section>
@@ -175,10 +180,7 @@ const posts = await getBlogPosts()
       </p>
 
       <div class='mt-5'>
-        <PostsSwiper
-          posts={posts}
-          client:load
-        />
+        <PostsSwiper posts={posts} />
       </div>
     </section>
   </main>
