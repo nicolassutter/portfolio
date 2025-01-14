@@ -13,24 +13,23 @@
     "@astrojs/solid-js": "^5.0.2",
     "cheerio": "1.0.0-rc.12",
     "feed": "^4.2.2",
-    "marked": "^14.1.2",
+    "marked": "^15.0.6",
     "prismjs": "^1.29.0",
-    "solid-js": "^1.8.15",
-    "swiper": "^11.0.6"
+    "solid-js": "^1.9.4"
   },
   "devDependencies": {
-    "@iconify-json/grommet-icons": "^1.1.10",
-    "@iconify-json/lucide": "^1.1.167",
-    "@iconify-json/mdi": "^1.1.64",
-    "@types/node": "^20.11.19",
-    "@types/prismjs": "^1.26.3",
-    "@unocss/preset-icons": "^0.58.5",
-    "@unocss/preset-typography": "^0.58.5",
-    "@unocss/preset-wind": "^0.58.5",
-    "@unocss/reset": "^0.58.5",
-    "@unocss/transformer-variant-group": "^0.58.5",
+    "@iconify-json/grommet-icons": "^1.2.1",
+    "@iconify-json/lucide": "^1.2.23",
+    "@iconify-json/mdi": "^1.2.2",
+    "@types/node": "^22.10.6",
+    "@types/prismjs": "^1.26.5",
+    "@unocss/preset-icons": "^65.4.0",
+    "@unocss/preset-typography": "^65.4.0",
+    "@unocss/preset-wind": "^65.4.0",
+    "@unocss/reset": "^65.4.0",
+    "@unocss/transformer-variant-group": "^65.4.0",
     "astro": "^5.1.6",
-    "typescript": "^5.3.3",
-    "unocss": "^0.58.5"
+    "typescript": "^5.7.3",
+    "unocss": "^65.4.0"
   }
 }
