@@ -80,7 +80,7 @@ const posts = await getBlogPosts()
     />
 
     <div
-      class='mt-12'
+      class='mt-12 [&_p]:mt-1 text-lg'
       set:html={md.parse(profile.bio)}
     />
   </header>
