@@ -53,7 +53,7 @@ export const ProjectsSwiper: Component<{
     <div class='w-full flex gap-2 overflow-x-auto'>
       <For each={props.projects}>
         {(project) => (
-          <div class='rounded-xl bg-zinc-900 p-6 flex flex-col w-full max-w-sm shrink-0'>
+          <div class='rounded-xl bg-zinc-900 p-6 flex flex-col w-full max-w-sm shrink-0 relative'>
             <h3 class='font-bold text-xl'>{project.data.title}</h3>
 
             {project.data.stack && (
