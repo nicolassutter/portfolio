@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 import { md } from '../../modules/markdown'
 import { profile } from '../../modules/profile'
@@ -13,12 +13,14 @@ export async function getStaticPaths() {
       params: {
         slug: post.slug,
       },
+      props: {
+        post,
+      },
     }
   })
 }
 
-const { slug } = Astro.params
-const post = await getEntry('posts', slug)
+const { post } = Astro.props
 const { Content } = await post.render()
 ---
 

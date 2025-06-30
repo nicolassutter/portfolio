@@ -14,6 +14,7 @@ export const articleSchema = z.object({
   content: z.string().optional(),
   status: z.enum(['published', 'draft']).optional(),
   date_updated: z.string().optional(),
+  order: z.number(),
 })
 
 export type Article = z.infer<typeof articleSchema>

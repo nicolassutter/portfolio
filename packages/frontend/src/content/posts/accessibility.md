@@ -3,6 +3,7 @@ id: bf7e24d9-7ee1-489f-a640-90f27847be2c
 title: Ma certification en accessibilité numérique
 lang: en
 thumbnail: /accessibility.jpg
+order: 2
 ---
 
 L'accessibilité numérique est un enjeu majeur de notre société moderne, où la technologie est omniprésente. De nombreux individus font face à des difficultés pour accéder aux contenus en ligne en raison de leur handicap ou de leurs besoins spécifiques. C'est grâce à mon expérience chez [Alsacréations](https://www.alsacreations.fr/) et leur sensibilité sur le sujet que j'ai décidé de me former et de devenir expert en accessibilité numérique. Récemment, j'ai obtenu ma certification délivrée par l'organisme de formation réputé "Access42". Grâce à cette certification, je suis désormais en mesure de développer des sites web accessibles, conformément au référentiel RGAA, ainsi que d'identifier et de résoudre les problèmes d'accessibilité sur les sites existants.

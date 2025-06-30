@@ -3,6 +3,7 @@ id: 219553e2-3c10-4450-bd2a-660944247fa3
 title: Why I use Tailwind CSS
 lang: en
 thumbnail: /why-tailwindcss.png
+order: 3
 ---
 
 So... I have been using [Tailwind CSS](https://tailwindcss.com/) for about 4 years at this point and in this article I would like to present why I wouldn't want to write CSS any other way.
