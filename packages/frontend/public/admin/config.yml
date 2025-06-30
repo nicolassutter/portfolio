@@ -1,0 +1,8 @@
+backend:
+  name: github
+  repo: nicolassutter/portfolio
+  branch: main
+  site_domain: sutter-nicolas.com # change this to your domain
+  base_url: https://sutter-nicolas.com # change this to your prod URL
+  auth_endpoint: oauth # the oauth route provided by the integration
+
