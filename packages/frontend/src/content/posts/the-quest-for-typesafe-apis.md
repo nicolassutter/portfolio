@@ -92,8 +92,8 @@ After a lot of trial and error, I found a setup that ticks almost all the boxes:
 - [Protocol Buffers (Protobuf)](https://protobuf.dev/): a language-neutral serialization format developed by Google.
 - [ConnectRPC](https://connectrpc.com/): a modern RPC framework for Go, from the team behind [Buf](https://buf.build/). It supports Protobufs and generates idiomatic clients and servers.
 - The same Protobuf definitions generate:
-- a **Go server code**
-- a **TypeScript client** using `@connectrpc/connect-web` for the frontend
+    - a **Go server code**
+    - a **TypeScript client** using `@connectrpc/connect-web` for the frontend
 
 This gave me:
 
