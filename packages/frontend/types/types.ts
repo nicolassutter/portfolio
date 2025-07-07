@@ -1,6 +1,6 @@
 import { z } from 'astro:content'
 
-const maybeDate = z.string().datetime().optional()
+const maybeDate = z.coerce.date().optional()
 
 export const articleSchema = z.object({
   title: z.string(),
