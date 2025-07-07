@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro'
 import { md } from '../../modules/markdown'
 import { profile } from '../../modules/profile'
 import Footer from '../../components/Footer.astro'
+import { stripHtml } from 'string-strip-html'
 
 export async function getStaticPaths() {
   const astroPosts = await getCollection('posts')
@@ -22,14 +23,21 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props
 const { Content } = await post.render()
+const blogPostExcerpt = post.body.length
+  ? stripHtml(
+      md.parse(post.body, {
+        async: false,
+      }),
+    ).result
+  : null
 ---
 
 <Layout
   meta={{
     title: profile.name,
-    description: md.parse(profile.bio, {
-      async: false,
-    }),
+    description: blogPostExcerpt
+      ? blogPostExcerpt.slice(0, 150) + '...'
+      : 'A blog post by Nicolas Sutter',
     image: '/avatar.jpg',
     url: 'https://sutter-nicolas.com/',
   }}
