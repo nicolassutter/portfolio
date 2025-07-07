@@ -5,6 +5,13 @@ backend:
   site_domain: sutter-nicolas.com # change this to your domain
   base_url: https://sutter-nicolas.com # change this to your prod URL
   auth_endpoint: oauth # the oauth route provided by the integration
+  commit_messages:
+    create: "feat(content): create {{collection}} “{{slug}}”"
+    update: "feat(content): update {{collection}} “{{slug}}”"
+    delete: "feat(content): delete {{collection}} “{{slug}}”"
+    uploadMedia: "feat(media): upload “{{path}}”"
+    deleteMedia: "feat(media): delete “{{path}}”"
+    openAuthoring: '{{message}}'
 
 media_folder: "packages/frontend/public/uploads"
 public_folder: "/uploads"
