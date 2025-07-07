@@ -1,12 +1,12 @@
 ---
 title: The Quest for Typesafe APIs
-publishedAt: ''
+publishedAt: 2025-06-30T17:03:00
 category: ''
 lang: en
 thumbnail: /typesafe-apis-banner.webp
 id: 69c59c03-c5d1-45a5-aed8-3e065971bba1
-date_created: ''
-date_updated: ''
+date_created: 2025-06-30T17:02:00
+date_updated: 2025-07-07T17:03:00
 order: 1
 ---
 Over the past few days, I went down a rabbit hole researching how to build a fully **typesafe API** between a **Golang backend** and a **SolidJS frontend**. I wanted something that felt as seamless and developer-friendly as [`tRPC`](https://trpc.io/) in the TypeScript world — without sacrificing language agnosticism, and without getting bogged down in verbosity.
