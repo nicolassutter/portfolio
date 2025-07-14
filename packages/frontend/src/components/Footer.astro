@@ -1,10 +1,11 @@
 ---
-import { Button } from './Button'
-import { type profile as Profile } from '../modules/profile'
 import Socials from '../components/Socials.astro'
+import type { Profile } from '../modules/requests'
+import { Button } from './Buttons'
+import SendIcon from 'lucide-solid/icons/send'
 
 export interface Props {
-  profile: typeof Profile
+  profile: Profile
 }
 
 const { profile } = Astro.props
@@ -12,9 +13,9 @@ const { profile } = Astro.props
 
 <footer
   role='contentinfo'
-  class='bg-stone-950 col-start-1 col-span-full py-12 px-4 mt-12'
+  class='border-t border-border py-12 px-4 mt-12'
 >
-  <div class='w-full max-w-5xl mx-auto'>
+  <div class='w-full max-w-(--base-container) mx-auto'>
     <div class='grid md:grid-cols-2 gap-20'>
       <div>
         <p>
@@ -23,12 +24,13 @@ const { profile } = Astro.props
         </p>
 
         <Button
-          tag='a'
+          as='a'
           href={`mailto:${profile.email}`}
           class='mt-6'
+          variant='muted'
         >
           Send me an email
-          <i class='mdi:send hover:opacity-80 transition-opacity'></i>
+          <SendIcon class='' />
         </Button>
       </div>
 
@@ -39,22 +41,12 @@ const { profile } = Astro.props
       </div>
     </div>
 
-    <div
-      class='mt-30 flex flex-col md:flex-row items-center gap-4 text-zinc-300'
-    >
+    <div class='mt-30 grid gap-4'>
       <p>
         {new Date().getFullYear()} - {profile.name} - Interesting note on copyright
       </p>
 
       <Socials profile={profile} />
     </div>
-
-    <a
-      href='/rss.xml'
-      class='underline mt-2 text-zinc-300 hover:text-zinc-400'
-      target='_blank'
-      rel='noopener noreferer'
-      >RSS feed</a
-    >
   </div>
 </footer>

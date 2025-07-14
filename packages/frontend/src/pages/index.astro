@@ -1,193 +1,102 @@
 ---
-import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import { md } from '../modules/markdown'
-import { profile } from '../modules/profile'
-import { getFakeArticles } from '../modules/articles/fake'
-import { getPosts } from '../modules/articles'
-import { PostsSwiper, ProjectsSwiper } from '../components/Swipers'
-import type { Article } from '../../types/types'
-import Footer from '../components/Footer.astro'
-import Socials from '../components/Socials.astro'
 import { Image } from 'astro:assets'
+import { Typography } from '../components/Typography'
+import { Button } from '../components/Buttons'
+import ArrowRightIcon from 'lucide-solid/icons/arrow-right'
+import { getLatestPosts, getProfile, getTechStacks } from '../modules/requests'
+import { BlogPost } from '../components/BlogPosts'
+import { StackExplorer } from '../components/StackExplorer'
 
-const projects = await getCollection('projects')
-const skills = await getCollection('skills')
+const [posts, profile, techStacks] = await Promise.all([
+  getLatestPosts(),
+  getProfile(),
+  getTechStacks(),
+])
 
-async function getBlogPosts(): Promise<(Article & { slug?: string })[]> {
-  const remotePosts =
-    import.meta.env.MODE === 'production'
-      ? await getPosts()
-      : await getFakeArticles()
+const bio = await md.parse(profile.bio ?? '')
 
-  const astroPosts = await getCollection('posts')
-
-  return [
-    ...astroPosts
-      .map((post) => ({
-        ...post.data,
-        slug: post.slug,
-      }))
-      .sort((a, b) => {
-        return a.order - b.order
-      }),
-    ...remotePosts.data,
-  ]
-}
-
-const posts = await getBlogPosts()
+export const prerender = false
 ---
 
 <Layout
   meta={{
-    title: profile.name,
-    description: md.parse(profile.bio, {
-      async: false,
-    }),
+    title: profile.name ?? '',
+    description: bio,
     image: '/avatar.jpg',
     url: 'https://sutter-nicolas.com/',
   }}
 >
-  <!-- <SkipLinks></SkipLinks> -->
-  <header role='banner'>
-    <div class='relative w-56 md:w-72 aspect-square group'>
+  <main
+    role='main'
+    class=''
+  >
+    <section class='grid md:flex gap-6'>
       <Image
         src='/avatar.jpg'
         alt=''
-        width={200}
-        height={200}
-        class='h-full w-full object-cover rounded-full relative z-2'
+        width={320}
+        height={320}
+        class='rounded-full shadow-lg shrink-0 object-cover size-48 lg:size-64'
+        loading='eager'
+        decoding='async'
       />
 
-      <!-- This isn't me btw -->
-      <Image
-        src='/keanu.jpg'
-        alt=''
-        width={200}
-        height={200}
-        class='opacity-0 absolute inset-0 h-full w-full group-hover:opacity-100 rounded-full object-cover z-3 transition-opacity'
-      />
-
-      <span
-        aria-hidden='true'
-        class='absolute top-0 left-1/2 -translate-x-1/2 block bg-gray-700 rounded-full p-2 z-1 group-hover:-translate-y-12 transition-transform h-10 w-10'
-      >
-        <span class='absolute top-1/2 left-1/2 -translate-1/2'>🧀</span>
-      </span>
-    </div>
-
-    <h1 class='font-bold text-4xl mt-8'>{profile.name}</h1>
-
-    <Socials
-      profile={profile}
-      class='mt-4'
-    />
-
-    <div
-      class='mt-12 [&_p]:mt-1 text-lg'
-      set:html={md.parse(profile.bio)}
-    />
-  </header>
-
-  <main
-    role='main'
-    class='mt-12'
-  >
-    <section>
-      <h2 class='font-bold text-2xl'>🍿 During my free time</h2>
-      <p class='mt-5'>
-        I spend my free time doing several things, including keeping up with the
-        latest technology trends, as well as maintaining my automated Plex
-        server running on Docker.
-      </p>
+      <div class='flex flex-col gap-4'>
+        <Typography.h1>{profile.name}</Typography.h1>
+        <div
+          class='text-foreground/85 leading-relaxed'
+          set:html={bio}
+        />
+      </div>
     </section>
 
-    <section class='mt-12'>
-      <h2 class='font-bold text-2xl'>💪 My skills</h2>
-      <p class='mt-5'>
-        Thanks to particularly active technological monitoring and through my
-        various professional experiences, I have acquired numerous technical
-        skills.
-      </p>
-      <ul class='mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-6'>
+    <!-- Skills -->
+    <section class='mt-16'>
+      <Typography.h2>Stacks I work with:</Typography.h2>
+
+      <div class='mt-6'>
+        <StackExplorer
+          client:load
+          techStacks={techStacks}
+        />
+      </div>
+    </section>
+
+    <!-- Latest blog posts -->
+    <section class='mt-16'>
+      <Typography.h2>Latest blog posts</Typography.h2>
+      <Typography.p>
+        Here are some of my latest blog posts. You can find more on my blog
+        page.
+      </Typography.p>
+
+      <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
         {
-          skills.map((skill) => (
-            <li
-              class:list={[
-                'rounded-xl bg-zinc-900 p-6',
-                // first child
-                'sm:[&:nth-child(1)]:col-span-2 md:[&:nth-child(1)]:(row-span-2 col-span-1)',
-                // second child
-                'sm:[&:nth-child(2)]:row-span-2 md:[&:nth-child(2)]:(col-span-2 row-span-1)',
-              ]}
-            >
-              <div class='flex flex-row-reverse justify-end gap-4'>
-                <div>
-                  <h3 class='font-bold text-xl'>{skill.data.title}</h3>
-                  <p class='text-sm'>{skill.data.subtitle}</p>
-                </div>
-
-                <img
-                  class='w-14 h-14'
-                  src={skill.data.icon}
-                  alt=''
-                />
-              </div>
-
-              <div
-                class='mt-6'
-                set:html={md.parse(skill.body)}
+          posts.map((post) => (
+            <li>
+              <BlogPost
+                post={post}
+                class='h-full'
               />
             </li>
           ))
         }
       </ul>
-    </section>
 
-    <section class='mt-12'>
-      <h2
-        class='font-bold text-2xl'
-        id='projects-title'
-      >
-        💻 Projects
-      </h2>
-
-      <p class='mt-5'>
-        I have had the opportunity to work on several professional projects as
-        well as personal projects during my technological monitoring.
-      </p>
-
-      <div class='mt-10'>
-        <ProjectsSwiper
-          projects={projects.map((project) => ({
-            ...project,
-            body: md.parse(project.body, {
-              async: false,
-            }),
-          }))}
-        />
-      </div>
-    </section>
-
-    <section class='mt-12'>
-      <h2
-        class='font-bold text-2xl'
-        id='posts-title'
-      >
-        📝 Blog posts
-      </h2>
-
-      <p class='mt-5'>
-        While working with Alsacréations as well as during my free time, I have
-        had the opportunity to write articles on topics related to web
-        development.
-      </p>
-
-      <div class='mt-5'>
-        <PostsSwiper posts={posts} />
+      <div class='flex justify-center mt-4'>
+        <Button
+          href='/blog'
+          as='a'
+          class='group'
+        >
+          See all blog posts
+          <ArrowRightIcon
+            class='group-hover:ml-2 transition-[margin-left] will-change-[margin-left]'
+          />
+        </Button>
       </div>
     </section>
   </main>
-
-  <Footer profile={profile} />
 </Layout>

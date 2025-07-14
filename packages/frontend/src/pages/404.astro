@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import gif from '../assets/404.gif'
+import { Button } from '../components/Buttons'
+import ArrowLeftIcon from 'lucide-solid/icons/arrow-left'
+
+export const prerender = false
+---
+
+<Layout>
+  <main role='main'>
+    <div class='flex items-center justify-center flex-col gap-6'>
+      <h1
+        class='text-6xl md:text-9xl font-bold text-center text-primary leading-none'
+      >
+        404
+      </h1>
+
+      <Image
+        src={gif}
+        alt='Page not found'
+      />
+
+      <div>
+        <Button
+          as='a'
+          href='/'
+          class='group'
+        >
+          <ArrowLeftIcon
+            class='group-hover:mr-2 will-change-[margin-right] transition-[margin-right]'
+          />
+          Go back home
+        </Button>
+      </div>
+    </div>
+  </main>
+</Layout>

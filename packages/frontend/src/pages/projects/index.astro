@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { md } from '../../modules/markdown'
+import { Typography } from '../../components/Typography'
+import { getProjects } from '../../modules/requests'
+import { ProjectCard } from '../../components/ProjectCard'
+import { BlogPagination } from '../../components/BlogPagination'
+import { z } from 'zod'
+
+export const prerender = false
+
+// const currentPage = z.coerce
+//   .number()
+//   .catch(1)
+//   .parse(Astro.url.searchParams.get('p') ?? '1')
+
+// const { posts, total } = await getAllPosts({
+//   page: currentPage,
+// })
+
+// const profile = await getProfile()
+// const bio = await md.parse(profile.bio ?? '')
+const projects = await getProjects()
+const mappedProjects = await Promise.all(projects.map(async (project) => {
+  return {
+    ...project,
+    description: await md.parse(project.description ?? ''),
+  }
+}))
+---
+
+<Layout>
+  <main
+    role='main'
+    class=''
+  >
+    <section class=''>
+      <Typography.h2>Projects i want to share</Typography.h2>
+
+      <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
+        {mappedProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+      <!---->
+      <!-- <div class='mt-4'> -->
+      <!--   <BlogPagination -->
+      <!--     count={total} -->
+      <!--     page={currentPage} -->
+      <!--   /> -->
+      <!-- </div> -->
+    </section>
+  </main>
+</Layout>

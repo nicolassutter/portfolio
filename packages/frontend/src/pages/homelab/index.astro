@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import {
+  HeroSection,
+  ArchitectureSection,
+  ServicesSection,
+  LearningSection,
+} from '../../components/homelab'
+import { getHomelabServices, getHomelabData } from '../../modules/requests'
+
+export const prerender = false
+const homelabServices = await getHomelabServices()
+const homelabData = await getHomelabData()
+---
+
+<Layout>
+  <main
+    role='main'
+    class='grid gap-16'
+  >
+    {/* Hero Section */}
+    <HeroSection />
+
+    {/* Architecture Overview */}
+    <ArchitectureSection />
+
+    {/* Services I Run */}
+    <ServicesSection services={homelabServices} />
+
+    {/* Learning & Documentation */}
+    <LearningSection learnings={homelabData.learnings} />
+  </main>
+</Layout>

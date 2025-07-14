@@ -2,37 +2,54 @@
   "name": "@example/basics",
   "version": "0.0.1",
   "private": true,
+  "engine": {
+    "node": "^22.0.0"
+  },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "bunx --bun astro dev",
+    "build": "bunx astro build",
+    "astro": "bunx --bun astro",
+    "cli": "bun cli.ts",
+    "typegen": "bun run cli typegen",
+    "directus:snapshot": "bun run cli directus-snapshot",
+    "directus:migrate": "bun run cli directus-migrate",
+    "directus:migrate-local": "bun run cli directus-migrate-local"
   },
   "dependencies": {
+    "@ark-ui/solid": "^5.16.1",
+    "@astrojs/node": "^9.3.0",
     "@astrojs/solid-js": "^5.0.2",
     "@astrojs/vercel": "^8.2.0",
-    "astro-decap-cms-oauth": "^0.5.1",
-    "cheerio": "1.0.0-rc.12",
+    "@directus/sdk": "^20.0.0",
+    "@fontsource/geist-sans": "^5.2.5",
+    "@solid-primitives/rootless": "^1.5.2",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.11",
+    "clsx": "^2.1.1",
     "feed": "^4.2.2",
+    "lucide-solid": "^0.525.0",
     "marked": "^15.0.6",
-    "prismjs": "^1.29.0",
+    "marked-shiki": "^1.2.0",
+    "openapi-typescript": "^7.8.0",
+    "slugify": "^1.6.6",
     "solid-js": "^1.9.4",
-    "string-strip-html": "^13.4.12"
+    "string-strip-html": "^13.4.12",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.11",
+    "zod": "^4.0.5"
   },
   "devDependencies": {
+    "@commander-js/extra-typings": "^14.0.0",
+    "@dotenvx/dotenvx": "^1.47.6",
     "@iconify-json/grommet-icons": "^1.2.1",
     "@iconify-json/lucide": "^1.2.23",
-    "@iconify-json/mdi": "^1.2.2",
+    "@types/bun": "^1.2.18",
     "@types/node": "^22.10.6",
-    "@types/prismjs": "^1.26.5",
-    "@unocss/preset-icons": "^65.4.0",
-    "@unocss/preset-typography": "^65.4.0",
-    "@unocss/preset-wind": "^65.4.0",
-    "@unocss/reset": "^65.4.0",
-    "@unocss/transformer-variant-group": "^65.4.0",
     "astro": "^5.1.6",
-    "typescript": "^5.7.3",
-    "unocss": "^65.4.0"
+    "commander": "^14.0.0",
+    "consola": "^3.4.2",
+    "shiki": "^3.8.0",
+    "type-fest": "^4.41.0",
+    "typescript": "^5.7.3"
   }
 }

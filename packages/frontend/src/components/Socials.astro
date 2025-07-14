@@ -1,34 +1,39 @@
 ---
-import { type profile as Profile } from '../modules/profile'
+import type { Profile } from '../modules/requests'
+import { DynamicIcon } from './DynamicIcon'
 
 export interface Props {
-  profile: typeof Profile
+  profile: Profile
   class?: string
 }
 
-const { profile } = Astro.props
+const { profile, class: className } = Astro.props
 ---
 
-<ul class:list={['md:ml-auto flex items-center gap-2', Astro.props.class]}>
+<ul class:list={['flex items-center gap-2', className]}>
   {
-    Object.entries(profile.socials).map(([title, { url, icon }]) => (
-      <li>
-        <a
-          href={url}
-          title={title}
-          target='_blank'
-          rel='noopener noreferer'
-          class='hover:opacity-80 transition-opacity block'
-        >
-          <span
-            class='flex'
-            aria-hidden='true'
+    profile.socials.map(({ url, icon, name }) => {
+      const iconIsUrl =
+        icon && (icon.startsWith('http') || icon.startsWith('/'))
+
+      return (
+        <li>
+          <a
+            href={url}
+            title={name}
+            target='_blank'
+            rel='noopener noreferer'
+            class='hover:opacity-80 transition-opacity block'
           >
-            <i class={icon} />
-          </span>
-          <span class='sr-only'>{title}, open in a new tab</span>
-        </a>
-      </li>
-    ))
+            <DynamicIcon
+              icon={icon}
+              url={iconIsUrl ? icon : undefined}
+            />
+
+            <span class='sr-only'>{name}, open in a new tab</span>
+          </a>
+        </li>
+      )
+    })
   }
 </ul>

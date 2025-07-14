@@ -6,11 +6,18 @@
   "scripts": {
     "dev": "pnpm run --parallel dev"
   },
+  "engine": {
+    "node": "^22.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.18.0",
+    "@types/bun": "^1.2.18",
     "bumpp": "^9.10.0",
     "eslint": "^9.18.0",
     "eslint-plugin-solid": "^0.14.5",

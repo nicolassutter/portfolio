@@ -1,10 +1,16 @@
-import { marked } from 'marked'
 import { Feed } from 'feed'
-import { profile } from '../modules/profile'
-import { getCollection } from 'astro:content'
+import { getProfile, getAllPosts } from '../modules/requests'
+import slugify from 'slugify'
+
+export const prerender = false
 
 export async function GET() {
-  const astroPosts = await getCollection('posts')
+  const [posts, profile] = await Promise.all([
+    getAllPosts({
+      perPage: 100, // Adjust as needed for the number of posts you want in the feed
+    }),
+    getProfile(),
+  ])
 
   const SITE_URL = 'https://sutter-nicolas.com'
 
@@ -31,14 +37,14 @@ export async function GET() {
     },
   })
 
-  astroPosts.forEach((post) => {
+  const promises = posts.posts.map(async (post) => {
+    if (!post.title) return
+
     feed.addItem({
-      title: post.data.title,
-      id: post.slug,
-      link: `${SITE_URL}/blog/${post.slug}`,
-      content: marked.parse(post.body ?? '', {
-        async: false,
-      }),
+      title: post.title,
+      id: post.id,
+      link: `${SITE_URL}/blog/${slugify(post.title, { lower: true })}/${post.id}`,
+      content: post.excerpt ?? '',
       date: new Date(),
       author: [
         {
@@ -49,6 +55,8 @@ export async function GET() {
       ],
     })
   })
+
+  await Promise.all(promises)
 
   return new Response(feed.rss2())
 }

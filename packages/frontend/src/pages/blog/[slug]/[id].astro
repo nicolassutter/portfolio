@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import { md } from '~/src/modules/markdown'
+import { getProfile } from '~/src/modules/requests'
+import { getPostById } from '~/src/modules/requests'
+
+const profile = await getProfile()
+
+export const prerender = false
+
+if (!Astro.params.id) {
+  throw new Error('Post ID is required')
+}
+
+const post = await getPostById(Astro.params.id)
+const content = await md.parse(post.content ?? '')
+---
+
+<Layout
+  meta={{
+    title: profile.name ?? '',
+    description: post.excerpt ?? '',
+    image: '/avatar.jpg',
+    url: 'https://sutter-nicolas.com/',
+  }}
+  contentContainerClasses='grid-cols-[1fr_2fr_1fr]'
+>
+  <!-- <SkipLinks></SkipLinks> -->
+  <header role='banner'>
+    <!-- <img -->
+    <!--   src={post.thumbnail} -->
+    <!--   alt='' -->
+    <!--   class='rounded-md w-full mt-9' -->
+    <!-- /> -->
+
+    <h1 class='font-bold text-4xl mt-8'>{post.title}</h1>
+  </header>
+
+  <main
+    role='main'
+    class='mt-12'
+  >
+    <div
+      class='prose dark:prose-invert'
+      set:html={content}
+    />
+  </main>
+</Layout>

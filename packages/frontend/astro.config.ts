@@ -1,10 +1,11 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig, envField } from 'astro/config'
 import url from 'node:url'
 import solidJs from '@astrojs/solid-js'
-import UnoCSS from 'unocss/astro'
-import decapCmsOauth from 'astro-decap-cms-oauth'
+import tailwindcss from '@tailwindcss/vite'
 
 import vercel from '@astrojs/vercel'
+
+// import node from '@astrojs/node'
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
@@ -14,15 +15,9 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    UnoCSS({
-      injectReset: true,
-    }),
-    solidJs(),
-    decapCmsOauth({
-      decapCMSSrcUrl: 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js',
-    }),
-  ],
+  output: 'server',
+
+  integrations: [solidJs()],
 
   vite: {
     resolve: {
@@ -30,14 +25,27 @@ export default defineConfig({
         '~/*': __dirname,
       },
     },
-    plugins: [],
-  },
-
-  markdown: {
-    shikiConfig: {
-      theme: 'catppuccin-macchiato',
-    },
+    plugins: [tailwindcss()],
   },
 
   adapter: vercel(),
+
+  env: {
+    schema: {
+      // runtime variables
+
+      // token that has admin access to Directus
+      DIRECTUS_ADMIN_TOKEN: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+
+      // build times variables
+      DIRECTUS_PUBLIC_URL: envField.string({
+        context: 'client',
+        access: 'public',
+        optional: false,
+      }),
+    },
+  },
 })
