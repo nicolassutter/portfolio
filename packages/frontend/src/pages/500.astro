@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { Image } from 'astro:assets'
-import gif from '../assets/404.gif'
 import { Button } from '../components/Buttons'
 import ArrowLeftIcon from 'lucide-solid/icons/arrow-left'
 
@@ -10,8 +8,8 @@ export const prerender = true
 
 <Layout
   meta={{
-    description: 'The page you are looking for does not exist.',
-    title: '404 - Page Not Found',
+    description: 'An unknown error occurred on the server.',
+    title: '500 - Internal Server Error',
   }}
 >
   <main role='main'>
@@ -19,13 +17,8 @@ export const prerender = true
       <h1
         class='text-6xl md:text-9xl font-bold text-center text-primary leading-none'
       >
-        404
+        Unknown Error
       </h1>
-
-      <Image
-        src={gif}
-        alt='Page not found'
-      />
 
       <div>
         <Button
@@ -36,7 +29,7 @@ export const prerender = true
           <ArrowLeftIcon
             class='group-hover:mr-2 will-change-[margin-right] transition-[margin-right]'
           />
-          Go back home
+          Try to go back home
         </Button>
       </div>
     </div>
