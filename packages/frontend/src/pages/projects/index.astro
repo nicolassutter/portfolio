@@ -35,7 +35,7 @@ const mappedProjects = await Promise.all(projects.map(async (project) => {
     class=''
   >
     <section class=''>
-      <Typography.h2>Projects i want to share</Typography.h2>
+      <Typography.h2>Projects I want to share</Typography.h2>
 
       <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
         {mappedProjects.map((project) => <ProjectCard project={project} />)}
