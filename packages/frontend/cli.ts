@@ -121,4 +121,28 @@ program
     await targetDirectus.request(schemaApply(diff))
   })
 
+program
+  .command('directus-diff')
+  .description(
+    'Get the schema diff between two Directus instances (base and target)',
+  )
+  .requiredOption('--target <url>', 'Target Directus URL')
+  .requiredOption(
+    '--static-token <token>',
+    'Static token for authentication on target Directus',
+  )
+  .action(async function () {
+    const baseDirectus = createDirectus('http://localhost:8055')
+      .with(rest())
+      .with(staticToken(env.DIRECTUS_ADMIN_TOKEN))
+
+    const targetDirectus = createDirectus(this.opts().target)
+      .with(rest())
+      .with(staticToken(this.opts().staticToken))
+
+    const baseSnapshot = await baseDirectus.request(schemaSnapshot())
+    const diff = await targetDirectus.request(schemaDiff(baseSnapshot))
+    consola.log(JSON.stringify(diff, null, 2))
+  })
+
 program.parse()

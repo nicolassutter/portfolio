@@ -3,6 +3,8 @@ import Layout from '../../../layouts/Layout.astro'
 import { md } from '~/src/modules/markdown'
 import { getProfile } from '~/src/modules/requests'
 import { getPostById } from '~/src/modules/requests'
+import { DIRECTUS_PUBLIC_URL } from 'astro:env/client'
+import { Typography } from '../../../components/Typography'
 
 const profile = await getProfile()
 
@@ -27,18 +29,22 @@ const content = await md.parse(post.content ?? '')
 >
   <!-- <SkipLinks></SkipLinks> -->
   <header role='banner'>
-    <!-- <img -->
-    <!--   src={post.thumbnail} -->
-    <!--   alt='' -->
-    <!--   class='rounded-md w-full mt-9' -->
-    <!-- /> -->
+    {
+      post.thumbnail && (
+        <img
+          src={`${DIRECTUS_PUBLIC_URL}/assets/${post.thumbnail}`}
+          alt=''
+          class='rounded-xl w-full mb-8 aspect-video object-cover'
+        />
+      )
+    }
 
-    <h1 class='font-bold text-4xl mt-8'>{post.title}</h1>
+    <Typography.h1>{post.title}</Typography.h1>
   </header>
 
   <main
     role='main'
-    class='mt-12'
+    class='mt-8'
   >
     <div
       class='prose dark:prose-invert'
