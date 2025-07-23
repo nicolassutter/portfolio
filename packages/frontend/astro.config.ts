@@ -30,8 +30,10 @@ export default defineConfig({
 
   adapter: vercel({
     isr: {
+      // can bypass the cache and revalidate immediately by sending the "x-prerender-revalidate: <bypassToken>" header
       // seconds * minutes * hours = days
       expiration: 60 * 60 * 2, // 2h
+      bypassToken: process.env.VERCEL_REVALIDATE_TOKEN || '', // set this to a secret token to allow bypassing the cache
     },
   }),
 
