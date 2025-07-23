@@ -25,7 +25,7 @@ const content = await md.parse(post.content ?? '')
     image: '/avatar.jpg',
     url: 'https://sutter-nicolas.com/',
   }}
-  contentContainerClasses='grid-cols-[1fr_2fr_1fr]'
+  contentContainerClasses='md:grid-cols-[auto_minmax(0,65ch)_auto]'
 >
   <!-- <SkipLinks></SkipLinks> -->
   <header role='banner'>
@@ -47,7 +47,7 @@ const content = await md.parse(post.content ?? '')
     class='mt-8'
   >
     <div
-      class='prose dark:prose-invert'
+      class='prose dark:prose-invert prose-img:rounded-xl prose-img:object-cover prose-img:object-center'
       set:html={content}
     />
   </main>

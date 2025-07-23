@@ -13,40 +13,38 @@ const { profile } = Astro.props
 
 <footer
   role='contentinfo'
-  class='border-t border-border py-12 px-4 mt-12'
+  class='border-t border-border py-12 mt-12 grid grid-cols-(--default-content-grid) [:where(&>*)]:col-start-2'
 >
-  <div class='w-full max-w-(--base-container) mx-auto'>
-    <div class='grid md:grid-cols-2 gap-20'>
-      <div>
-        <p>
-          I was thinking about adding a paragraph here but then I realized I
-          didn't know what to write, so here we are.
-        </p>
-
-        <Button
-          as='a'
-          href={`mailto:${profile.email}`}
-          class='mt-6'
-          variant='muted'
-        >
-          Send me an email
-          <SendIcon class='' />
-        </Button>
-      </div>
-
-      <div>
-        <h2 class='font-bold text-xs'>Contact info</h2>
-        <p class='text-sm mt-4'>{profile.email}</p>
-        <p class='text-sm'>67000, Strasbourg</p>
-      </div>
-    </div>
-
-    <div class='mt-30 grid gap-4'>
+  <div class='grid md:grid-cols-2 gap-20'>
+    <div>
       <p>
-        {new Date().getFullYear()} - {profile.name} - Interesting note on copyright
+        I was thinking about adding a paragraph here but then I realized I
+        didn't know what to write, so here we are.
       </p>
 
-      <Socials profile={profile} />
+      <Button
+        as='a'
+        href={`mailto:${profile.email}`}
+        class='mt-6'
+        variant='muted'
+      >
+        Send me an email
+        <SendIcon class='' />
+      </Button>
     </div>
+
+    <div>
+      <h2 class='font-bold text-xs'>Contact info</h2>
+      <p class='text-sm mt-4'>{profile.email}</p>
+      <p class='text-sm'>67000, Strasbourg</p>
+    </div>
+  </div>
+
+  <div class='mt-30 grid gap-4'>
+    <p>
+      {new Date().getFullYear()} - {profile.name} - Interesting note on copyright
+    </p>
+
+    <Socials profile={profile} />
   </div>
 </footer>

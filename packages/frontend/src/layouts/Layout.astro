@@ -100,9 +100,8 @@ const meta = {
     />
 
     <div
-      style={`--gutter: minmax(2rem, auto);`}
       class={cn(
-        'grid grid-cols-[var(--gutter)_minmax(auto,var(--base-container))_var(--gutter)] [:where(&>*)]:col-start-2 pb-10',
+        'grid grid-cols-(--default-content-grid) [:where(&>*)]:col-start-2 pb-10',
         // reserve space for header
         'mt-32',
         contentContainerClasses,
