@@ -95,7 +95,7 @@ export const Header: Component<{
       <header
         aria-label='Navigation'
         role='navigation'
-        class='fixed z-30 w-full top-2 lg:top-4 xl:top-6 left-0 grid grid-cols-(--default-content-grid) [:where(&>*)]:col-start-2'
+        class='fixed z-30 w-full top-2 lg:top-4 xl:top-6 left-0 grid grid-cols-(--default-content-grid) [:where(&>*)]:col-start-2 text-foreground'
       >
         <div class='flex items-center justify-between gap-4 p-4 rounded-full border border-border backdrop-blur-lg bg-background/60'>
           <a
