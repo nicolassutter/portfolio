@@ -28,7 +28,12 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  adapter: vercel(),
+  adapter: vercel({
+    isr: {
+      // seconds * minutes * hours = days
+      expiration: 60 * 60 * 2, // 2h
+    },
+  }),
 
   env: {
     schema: {
