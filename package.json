@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm run --parallel dev"
+    "dev": "pnpm run --parallel dev",
+    "run:minoro": "cd packages/minoro && bun run start"
   },
   "engine": {
     "node": "^22.0.0"

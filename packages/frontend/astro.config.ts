@@ -39,15 +39,13 @@ export default defineConfig({
   env: {
     schema: {
       // runtime variables
-
-      // token that has admin access to Directus
-      DIRECTUS_ADMIN_TOKEN: envField.string({
+      DB_AUTH_TOKEN: envField.string({
         context: 'server',
         access: 'secret',
       }),
 
       // build times variables
-      DIRECTUS_PUBLIC_URL: envField.string({
+      MINORO_URL: envField.string({
         context: 'client',
         access: 'public',
         optional: false,

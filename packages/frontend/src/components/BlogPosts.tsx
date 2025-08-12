@@ -4,7 +4,7 @@ import { Button } from './Buttons'
 import slugify from 'slugify'
 import { Show } from 'solid-js'
 import { cn } from '../modules/utils'
-import { DIRECTUS_PUBLIC_URL } from 'astro:env/client'
+import { MINORO_URL } from 'astro:env/client'
 import type { Post } from '../modules/requests'
 
 export const BlogPost: Component<{
@@ -20,7 +20,7 @@ export const BlogPost: Component<{
     >
       <Show when={props.post.thumbnail}>
         <img
-          src={`${DIRECTUS_PUBLIC_URL}/assets/${props.post.thumbnail}`}
+          src={`${MINORO_URL}/assets/${props.post.thumbnail}`}
           alt=''
           class='rounded-lg w-full aspect-video object-cover'
         />

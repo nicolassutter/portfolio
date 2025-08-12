@@ -2,10 +2,10 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "feat/v2" ]
+    branches: [ "main" ]
 
 env:
-  IMAGE_NAME: portfolio-astro 
+  IMAGE_NAME: portfolio-minoro
 
 jobs:
   build-and-push:
@@ -35,9 +35,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: "{{defaultContext}}:packages/frontend"
-          file: Dockerfile
-          build-args: DIRECTUS_PUBLIC_URL=${{ vars.DIRECTUS_PUBLIC_URL }}
+          file: minoro.Dockerfile
           push: true
           platforms: linux/arm64
           tags: |

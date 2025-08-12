@@ -1,0 +1,24 @@
+services:
+  minoro:
+    image: oven/bun:1
+    container_name: minoro
+    restart: unless-stopped
+    # ports:
+    #   - "3000:3000"
+    volumes:
+      - ${DATA_DIR}:/datadir
+      - ./:/app
+    command: ["sh", "-c", "cd /app && bun install --prod && bun run start"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    environment:
+      - DATABASE_PATH=${DATABASE_PATH:-/datadir/data.db}
+      - MINORO_DATABASE_PATH=${MINORO_DATABASE_PATH:-/datadir/minoro.db}
+      - FRONTEND_URL=${FRONTEND_URL}
+      - ONE_TIME_ADMIN_TOKEN=${ONE_TIME_ADMIN_TOKEN}
+      - DB_AUTH_TOKEN=${DB_AUTH_TOKEN}
+      - ASSETS_DIR=/datadir/assets
+

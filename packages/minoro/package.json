@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-minoro",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "drizzle-pull": "dotenvx run -f .env.development -- drizzle-kit pull",
+    "drizzle-push": "dotenvx run -f .env.development -- drizzle-kit push",
+    "drizzle-studio": "dotenvx run -f .env.development -- drizzle-kit studio",
+    "dev": "NODE_ENV=development dotenvx run -f .env.development -- bun run --watch minoro.ts",
+    "build": "tsdown",
+    "migrate-prod": "drizzle-kit push --dialect sqlite --schema ./dist/src/db/schema.js --url $DATABASE_PATH",
+    "start": "bun run migrate-prod && bun run dist/minoro.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsdown": "^0.14.1",
+    "@repo/database": "workspace:*"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.48.4",
+    "@libsql/client": "^0.15.10",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.4",
+    "drizzle-zod": "^0.8.3",
+    "minoro": "^0.12.0",
+    "zod": "^4.0.15"
+  }
+}

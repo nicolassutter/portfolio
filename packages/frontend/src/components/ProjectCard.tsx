@@ -3,7 +3,7 @@ import { Typography } from './Typography'
 import { Badge, Button } from './Buttons'
 import { Show, For } from 'solid-js'
 import { cn } from '../modules/utils'
-import { DIRECTUS_PUBLIC_URL } from 'astro:env/client'
+import { MINORO_URL } from 'astro:env/client'
 import type { Project } from '../modules/requests'
 import ExternalLinkIcon from 'lucide-solid/icons/external-link'
 
@@ -20,7 +20,7 @@ export const ProjectCard: Component<{
     >
       <Show when={typeof props.project.thumbnail === 'string'}>
         <img
-          src={`${DIRECTUS_PUBLIC_URL}/assets/${props.project.thumbnail}`}
+          src={`${MINORO_URL}/assets/${props.project.thumbnail}`}
           alt=''
           class='rounded-lg mb-2 w-full aspect-video object-cover'
         />
