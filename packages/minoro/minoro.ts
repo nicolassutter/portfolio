@@ -82,7 +82,8 @@ minoro._app.post('/api/db', async (c) => {
 })
 
 await minoro.ready
-await minoro.serveStaticUi()
 await minoro.serveStaticDirectory(env.ASSETS_DIR, '/assets')
+// this needs to be the last directive
+await minoro.serveStaticUi()
 
 Bun.serve({ fetch: minoro.fetch, port: env.PORT })
