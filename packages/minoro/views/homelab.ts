@@ -61,7 +61,7 @@ export const allHomelabServices = defineView(
 export const homelabServiceDetails = defineView(
   {
     name: 'Edit a homelab service',
-    params: z.object({ serviceId: z.string().min(1) }),
+    params: z.object({ serviceId: z.string() }),
     hidden: true,
   },
   (view) => {
