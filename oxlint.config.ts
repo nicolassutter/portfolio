@@ -1,10 +1,8 @@
 import { defineConfig } from 'oxlint'
-import solid from 'eslint-plugin-solid'
 
 export default defineConfig({
-  plugins: ['typescript'],
+  plugins: ['typescript', 'vue'],
   env: { builtin: true, browser: true, node: true },
-  jsPlugins: ['eslint-plugin-solid'],
   rules: {
     'constructor-super': 'error',
     'for-direction': 'error',
@@ -83,6 +81,5 @@ export default defineConfig({
     'typescript/prefer-as-const': 'error',
     'typescript/prefer-namespace-keyword': 'error',
     'typescript/triple-slash-reference': 'error',
-    ...solid.configs['flat/recommended'].rules,
   },
 })

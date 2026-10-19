@@ -1,36 +1,24 @@
-import { createEffect, createSignal } from 'solid-js'
-import { isServer } from 'solid-js/web'
-import type { Accessor } from 'solid-js'
-import { createSingletonRoot } from '@solid-primitives/rootless'
+import { createGlobalState, usePreferredDark, useStorage } from '@vueuse/core'
+import { watch } from 'vue'
 
-export function useLocalStorage<T extends string>(
-  key: string,
-  initialValue: T,
-): [Accessor<T>, (value: T) => void] {
-  const storage = isServer ? null : localStorage
+// key and default must match public/theme.vanilla.js (window.themeKey/defaultTheme),
+// echoed literally because that file doesn't run during SSR
+const key = import.meta.env.SSR ? 'theme' : window.themeKey
+const defaultTheme = import.meta.env.SSR ? 'system' : window.defaultTheme
 
-  const storedValue = storage?.getItem(key) ?? initialValue
-  const [state, setState] = createSignal(storedValue as T)
+export const useTheme = createGlobalState(() => {
+  const theme = useStorage<Theme>(key, defaultTheme)
+  const prefersDark = usePreferredDark()
 
-  createEffect(() => {
-    storage?.setItem(key, state())
-  })
+  watch(theme, (value) => window.applyTheme(value))
 
-  return [state, setState]
-}
-
-export const useTheme = createSingletonRoot(() => {
-  const [theme, setTheme] = useLocalStorage<Theme>(
-    window.themeKey,
-    window.defaultTheme,
-  )
-
-  createEffect(() => {
-    window.applyTheme(theme())
+  // while on 'system', a live OS theme flip must re-apply immediately
+  watch([theme, prefersDark], ([value]) => {
+    if (value === 'system') window.applyTheme(value)
   })
 
   return {
     theme,
-    setTheme,
+    setTheme: (value: Theme) => (theme.value = value),
   }
 })

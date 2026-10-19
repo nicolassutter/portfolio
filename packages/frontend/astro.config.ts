@@ -1,6 +1,6 @@
 import { defineConfig, envField } from 'astro/config'
 import url from 'node:url'
-import solidJs from '@astrojs/solid-js'
+import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
 
 import vercel from '@astrojs/vercel'
@@ -17,7 +17,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 export default defineConfig({
   output: 'server',
 
-  integrations: [solidJs()],
+  integrations: [vue()],
 
   vite: {
     resolve: {

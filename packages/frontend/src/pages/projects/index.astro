@@ -1,9 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { md } from '../../modules/markdown'
-import { Typography } from '../../components/Typography'
+import Typography from '../../components/Typography.vue'
 import { getProjects } from '../../modules/requests'
-import { ProjectCard } from '../../components/ProjectCard'
+import ProjectCard from '../../components/ProjectCard.vue'
 import { BlogPagination } from '../../components/BlogPagination'
 import { z } from 'zod'
 
@@ -37,7 +37,7 @@ const mappedProjects = await Promise.all(
     class=''
   >
     <section class=''>
-      <Typography.h2>Projects I want to share</Typography.h2>
+      <Typography tag='h2'>Projects I want to share</Typography>
 
       <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
         {mappedProjects.map((project) => (

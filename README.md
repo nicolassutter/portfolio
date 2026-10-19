@@ -4,7 +4,7 @@ My personal website: an Astro SSR frontend backed by a Minoro CMS instance.
 
 ## Tech stack
 
-- **Frontend** (`packages/frontend`): Astro 5 (SSR) + SolidJS + Tailwind CSS v4 + TypeScript. Deployed on Vercel (Vercel adapter with ISR).
+- **Frontend** (`packages/frontend`): Astro 5 (SSR) + Vue 3 + Tailwind CSS v4 + TypeScript. Deployed on Vercel (Vercel adapter with ISR).
 - **CMS** (`packages/minoro`): [Minoro](https://www.npmjs.com/package/minoro) admin panel on Bun + Drizzle + SQLite. Hosted on my VPS via Coolify; the Docker image is built by GitHub Actions and pushed to GHCR.
 - **Database** (`packages/database`): shared Drizzle schema. The frontend queries SQLite through the CMS's `/api/db` endpoint using Drizzle's `sqlite-proxy`.
 - Bun workspaces monorepo.

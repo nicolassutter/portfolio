@@ -1,11 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import {
-  HeroSection,
-  ArchitectureSection,
-  ServicesSection,
-  LearningSection,
-} from '../../components/homelab'
+import HeroSection from '../../components/HeroSection.vue'
+import ArchitectureSection from '../../components/ArchitectureSection.vue'
+import ServicesSection from '../../components/ServicesSection.vue'
+import LearningSection from '../../components/LearningSection.vue'
 import { getHomelabServices, getHomelabData } from '../../modules/requests'
 
 export const prerender = false

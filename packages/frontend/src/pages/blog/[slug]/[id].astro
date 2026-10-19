@@ -4,7 +4,7 @@ import { md } from '~/src/modules/markdown'
 import { getProfile } from '~/src/modules/requests'
 import { getPostById } from '~/src/modules/requests'
 import { MINORO_URL } from 'astro:env/client'
-import { Typography } from '../../../components/Typography'
+import Typography from '../../../components/Typography.vue'
 
 const profile = await getProfile()
 
@@ -37,7 +37,7 @@ const content = await md.parse(post.content ?? '')
       />
     )}
 
-    <Typography.h1>{post.title}</Typography.h1>
+    <Typography tag='h1'>{post.title}</Typography>
   </header>
 
   <main

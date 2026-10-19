@@ -2,12 +2,13 @@
 import Layout from '../layouts/Layout.astro'
 import { md } from '../modules/markdown'
 import { Image } from 'astro:assets'
-import { Typography } from '../components/Typography'
-import { Button } from '../components/Buttons'
-import ArrowRightIcon from 'lucide-solid/icons/arrow-right'
+import Typography from '../components/Typography.vue'
+
+import Button from '../components/Button.vue'
+import { ArrowRight as ArrowRightIcon } from '@lucide/vue'
 import { getLatestPosts, getProfile, getTechStacks } from '../modules/requests'
-import { BlogPost } from '../components/BlogPosts'
-import { StackExplorer } from '../components/StackExplorer'
+import BlogPost from '../components/BlogPosts.vue'
+import StackExplorer from '../components/StackExplorer.vue'
 
 const [posts, profile, techStacks] = await Promise.all([
   getLatestPosts(),
@@ -44,7 +45,7 @@ export const prerender = false
       />
 
       <div class='flex flex-col gap-4'>
-        <Typography.h1>{profile.name}</Typography.h1>
+        <Typography tag='h1'>{profile.name}</Typography>
         <div
           class='text-foreground/85 leading-relaxed'
           set:html={bio}
@@ -54,7 +55,7 @@ export const prerender = false
 
     <!-- Skills -->
     <section class='mt-16'>
-      <Typography.h2>Stacks I work with:</Typography.h2>
+      <Typography tag='h2'>Stacks I work with:</Typography>
 
       <div class='mt-6'>
         <StackExplorer
@@ -66,11 +67,11 @@ export const prerender = false
 
     <!-- Latest blog posts -->
     <section class='mt-16'>
-      <Typography.h2>Latest blog posts</Typography.h2>
-      <Typography.p>
+      <Typography tag='h2'>Latest blog posts</Typography>
+      <Typography>
         Here are some of my latest blog posts. You can find more on my blog
         page.
-      </Typography.p>
+      </Typography>
 
       <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
         {posts.map((post) => (

@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { md } from '../../modules/markdown'
-import { Typography } from '../../components/Typography'
+import Typography from '../../components/Typography.vue'
 import { getAllPosts, getProfile } from '../../modules/requests'
-import { BlogPost } from '../../components/BlogPosts'
-import { BlogPagination } from '../../components/BlogPagination'
+import BlogPost from '../../components/BlogPosts.vue'
+import BlogPagination from '../../components/BlogPagination.vue'
 import { z } from 'zod'
 
 export const prerender = false
@@ -34,7 +34,7 @@ const bio = await md.parse(profile.bio ?? '')
   >
     <!-- Latest blog posts -->
     <section class=''>
-      <Typography.h2>Blog posts</Typography.h2>
+      <Typography tag='h2'>Blog posts</Typography>
 
       <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
         {posts.map((post) => (
