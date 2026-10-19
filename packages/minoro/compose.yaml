@@ -8,9 +8,9 @@ services:
     volumes:
       - ${DATA_DIR}:/datadir
       - ./:/app
-    command: ["sh", "-c", "cd /app && bun install --prod && bun run start"]
+    command: ['sh', '-c', 'cd /app && bun install --prod && bun run start']
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000']
       interval: 30s
       timeout: 10s
       retries: 3
@@ -21,4 +21,3 @@ services:
       - ONE_TIME_ADMIN_TOKEN=${ONE_TIME_ADMIN_TOKEN}
       - DB_AUTH_TOKEN=${DB_AUTH_TOKEN}
       - ASSETS_DIR=/datadir/assets
-

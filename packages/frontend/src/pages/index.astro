@@ -59,7 +59,7 @@ export const prerender = false
       <div class='mt-6'>
         <StackExplorer
           client:load
-          techStacks={techStacks}
+          {techStacks}
         />
       </div>
     </section>
@@ -73,16 +73,14 @@ export const prerender = false
       </Typography.p>
 
       <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
-        {
-          posts.map((post) => (
-            <li>
-              <BlogPost
-                post={post}
-                class='h-full'
-              />
-            </li>
-          ))
-        }
+        {posts.map((post) => (
+          <li>
+            <BlogPost
+              {post}
+              class='h-full'
+            />
+          </li>
+        ))}
       </ul>
 
       <div class='flex justify-center mt-4'>
@@ -92,9 +90,7 @@ export const prerender = false
           class='group'
         >
           See all blog posts
-          <ArrowRightIcon
-            class='group-hover:ml-2 transition-[margin-left] will-change-[margin-left]'
-          />
+          <ArrowRightIcon class='group-hover:ml-2 transition-[margin-left] will-change-[margin-left]' />
         </Button>
       </div>
     </section>

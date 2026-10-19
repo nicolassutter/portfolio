@@ -3,9 +3,14 @@
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "bun run --parallel --workspaces dev",
-    "run:minoro": "cd packages/minoro && bun run start"
+    "run:minoro": "cd packages/minoro && bun run start",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
   },
   "engine": {
     "node": "^22.0.0"
@@ -17,16 +22,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
+    "@astrojs/compiler-rs": "^0.5.2",
     "@types/bun": "^1.2.18",
     "bumpp": "^9.10.0",
-    "eslint": "^9.18.0",
     "eslint-plugin-solid": "^0.14.5",
-    "globals": "^15.14.0",
     "ofetch": "^1.4.1",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "typescript": "^5.7.3"
   }
 }

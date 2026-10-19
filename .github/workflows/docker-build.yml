@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
 
 env:
   IMAGE_NAME: portfolio-minoro
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write 
+      packages: write
 
     steps:
       - name: Checkout repository
@@ -43,4 +43,3 @@ jobs:
             ghcr.io/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ steps.extract_sha.outputs.SHA_TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-

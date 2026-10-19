@@ -91,12 +91,10 @@ const meta = {
     </script>
   </head>
 
-  <body
-    class='[&_*]:outline-none [&_*]:focus-visible:ring-ring [&_*]:focus-visible:ring-1'
-  >
+  <body class='[&_*]:outline-none [&_*]:focus-visible:ring-ring [&_*]:focus-visible:ring-1'>
     <Header
       client:load
-      profile={profile}
+      {profile}
     />
 
     <div
@@ -110,7 +108,7 @@ const meta = {
       <slot />
     </div>
 
-    <Footer profile={profile} />
+    <Footer {profile} />
   </body>
 
   <style is:global>

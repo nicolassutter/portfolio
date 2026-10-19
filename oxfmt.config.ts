@@ -1,5 +1,6 @@
-/** @type {import("prettier").Config} */
-export default {
+import { defineConfig } from 'oxfmt'
+
+export default defineConfig({
   semi: false,
   singleQuote: true,
   quoteProps: 'as-needed',
@@ -10,13 +11,9 @@ export default {
   singleAttributePerLine: true,
   printWidth: 80,
   jsxSingleQuote: true,
-  plugins: ['prettier-plugin-astro'],
-  overrides: [
-    {
-      files: '*.astro',
-      options: {
-        parser: 'astro',
-      },
-    },
-  ],
-}
+  sortPackageJson: false,
+  astro: {
+    allowShorthand: true,
+  },
+  associations: [{ files: ['*.astro'], language: 'astro' }],
+})

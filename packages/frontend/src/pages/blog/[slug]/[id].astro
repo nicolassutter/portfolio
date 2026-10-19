@@ -29,15 +29,13 @@ const content = await md.parse(post.content ?? '')
 >
   <!-- <SkipLinks></SkipLinks> -->
   <header role='banner'>
-    {
-      post.thumbnail && (
-        <img
-          src={`${MINORO_URL}/assets/${post.thumbnail}`}
-          alt=''
-          class='rounded-xl w-full mb-8 aspect-video object-cover'
-        />
-      )
-    }
+    {post.thumbnail && (
+      <img
+        src={`${MINORO_URL}/assets/${post.thumbnail}`}
+        alt=''
+        class='rounded-xl w-full mb-8 aspect-video object-cover'
+      />
+    )}
 
     <Typography.h1>{post.title}</Typography.h1>
   </header>

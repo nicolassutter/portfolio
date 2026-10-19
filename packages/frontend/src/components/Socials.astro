@@ -11,29 +11,26 @@ const { profile, class: className } = Astro.props
 ---
 
 <ul class:list={['flex items-center gap-2', className]}>
-  {
-    profile.socials.map(({ url, icon, name }) => {
-      const iconIsUrl =
-        icon && (icon.startsWith('http') || icon.startsWith('/'))
+  {profile.socials.map(({ url, icon, name }) => {
+    const iconIsUrl = icon && (icon.startsWith('http') || icon.startsWith('/'))
 
-      return (
-        <li>
-          <a
-            href={url}
-            title={name}
-            target='_blank'
-            rel='noopener noreferer'
-            class='hover:opacity-80 transition-opacity block'
-          >
-            <DynamicIcon
-              icon={icon}
-              url={iconIsUrl ? icon : undefined}
-            />
+    return (
+      <li>
+        <a
+          href={url}
+          title={name}
+          target='_blank'
+          rel='noopener noreferer'
+          class='hover:opacity-80 transition-opacity block'
+        >
+          <DynamicIcon
+            {icon}
+            url={iconIsUrl ? icon : undefined}
+          />
 
-            <span class='sr-only'>{name}, open in a new tab</span>
-          </a>
-        </li>
-      )
-    })
-  }
+          <span class='sr-only'>{name}, open in a new tab</span>
+        </a>
+      </li>
+    )
+  })}
 </ul>

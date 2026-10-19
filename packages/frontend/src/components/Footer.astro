@@ -42,9 +42,10 @@ const { profile } = Astro.props
 
   <div class='mt-30 grid gap-4'>
     <p>
-      {new Date().getFullYear()} - {profile.name} - Interesting note on copyright
+      {new Date().getFullYear()} - {profile.name} - Interesting note on
+      copyright
     </p>
 
-    <Socials profile={profile} />
+    <Socials {profile} />
   </div>
 </footer>
