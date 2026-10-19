@@ -6,6 +6,7 @@
     "drizzle-pull": "dotenvx run -f .env.development -- drizzle-kit pull",
     "drizzle-push": "dotenvx run -f .env.development -- drizzle-kit push",
     "drizzle-studio": "dotenvx run -f .env.development -- drizzle-kit studio",
+    "seed": "dotenvx run -f .env.development -- bun run scripts/seed.ts",
     "dev": "PORT=8989 NODE_ENV=development dotenvx run -f .env.development -- bun run --watch minoro.ts",
     "build": "tsdown",
     "migrate-prod": "drizzle-kit push --dialect sqlite --schema ./dist/src/db/schema.js --url $DATABASE_PATH",
