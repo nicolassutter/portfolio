@@ -29,6 +29,8 @@ const meta = {
   title: profile.name,
   ...(Astro.props.meta ?? {}),
 }
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
+const umamiHostUrl = import.meta.env.PUBLIC_UMAMI_HOST_URL
 ---
 
 <!doctype html>
@@ -93,6 +95,18 @@ const meta = {
     <script>
       import '../modules/theme'
     </script>
+
+    {umamiWebsiteId && umamiHostUrl && (
+      <script
+        is:inline
+        defer
+        src={`${umamiHostUrl}/script.js`}
+        data-website-id={umamiWebsiteId}
+        data-host-url={umamiHostUrl}
+        data-domains='sutter-nicolas.com,www.sutter-nicolas.com'
+        data-do-not-track='true'
+      ></script>
+    )}
   </head>
 
   <body class='[&_*]:outline-none [&_*]:focus-visible:ring-ring [&_*]:focus-visible:ring-1'>

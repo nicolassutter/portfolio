@@ -2,3 +2,4 @@ node_modules
 *.db
 .scratch/
 data.db
+infra/umami/.env
