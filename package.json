@@ -4,27 +4,24 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "packageManager": "pnpm@12.14.0",
   "scripts": {
-    "dev": "bun run --parallel --workspaces dev",
-    "run:minoro": "cd packages/minoro && bun run start",
+    "dev": "pnpm -r --parallel --if-present run dev",
+    "run:minoro": "pnpm --filter portfolio-minoro start",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "typecheck": "bun run --filter @example/basics typecheck"
+    "typecheck": "pnpm --filter @example/basics typecheck"
   },
   "engines": {
     "node": "^22.0.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@astrojs/compiler-rs": "^0.5.2",
-    "@types/bun": "^1.2.18",
     "bumpp": "^9.10.0",
     "ofetch": "^1.4.1",
     "oxfmt": "^0.73.0",

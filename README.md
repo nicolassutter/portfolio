@@ -7,14 +7,14 @@ My personal website: an Astro SSR frontend backed by a Minoro CMS instance.
 - **Frontend** (`packages/frontend`): Astro 5 (SSR) + Vue 3 + Tailwind CSS v4 + TypeScript. Deployed on Vercel (Vercel adapter with ISR).
 - **CMS** (`packages/minoro`): [Minoro](https://www.npmjs.com/package/minoro) admin panel on Bun + Drizzle + SQLite. Hosted on my VPS via Coolify; the Docker image is built by GitHub Actions and pushed to GHCR.
 - **Database** (`packages/database`): shared Drizzle schema. The frontend queries SQLite through the CMS's `/api/db` endpoint using Drizzle's `sqlite-proxy`.
-- Bun workspaces monorepo.
+- pnpm workspaces monorepo. Bun is used only to run Minoro.
 
 ## Local development
 
-Requires [Bun](https://bun.sh).
+Requires [Node.js](https://nodejs.org/), [pnpm](https://pnpm.io/), and [Bun](https://bun.sh/) for Minoro.
 
 ```bash
-bun install
+pnpm install
 ```
 
 ### Environment variables
@@ -31,13 +31,13 @@ DB_AUTH_TOKEN=test # must match DB_AUTH_TOKEN in packages/minoro/.env.developmen
 First run only. Creates the tables in `packages/minoro/data.db`:
 
 ```bash
-cd packages/minoro && bun run drizzle-push
+pnpm --filter portfolio-minoro drizzle-push
 ```
 
 ### Run
 
 ```bash
-bun run dev
+pnpm dev
 ```
 
 - Site: <http://localhost:4321>
@@ -46,7 +46,6 @@ bun run dev
 ### Useful commands
 
 ```bash
-cd packages/minoro
-bun run drizzle-studio # browse the SQLite database
-bun run drizzle-push    # apply schema changes to data.db
+pnpm --filter portfolio-minoro drizzle-studio # browse the SQLite database
+pnpm --filter portfolio-minoro drizzle-push   # apply schema changes to data.db
 ```

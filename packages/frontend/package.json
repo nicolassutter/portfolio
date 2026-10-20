@@ -7,10 +7,10 @@
     "node": "^24.0.0"
   },
   "scripts": {
-    "dev": "bunx --bun astro dev --host",
-    "build": "bunx astro build",
-    "astro": "bunx --bun astro",
-    "typecheck": "bunx astro sync && bunx golar typecheck"
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "astro": "astro",
+    "typecheck": "astro sync && golar typecheck"
   },
   "dependencies": {
     "@ark-ui/vue": "^5.39.3",
@@ -40,7 +40,6 @@
     "@golar/vue": "^0.1.11",
     "@iconify-json/grommet-icons": "^1.2.4",
     "@iconify-json/lucide": "^1.2.146",
-    "@types/bun": "^1.2.18",
     "@types/node": "^26.6.5",
     "astro": "7.4.1",
     "golar": "^0.1.11",

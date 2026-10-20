@@ -1,14 +1,17 @@
 services:
   minoro:
-    image: oven/bun:1
+    build:
+      context: ../..
+      dockerfile: packages/minoro/Dockerfile
     container_name: minoro
     restart: unless-stopped
     # ports:
     #   - "3000:3000"
     volumes:
       - ${DATA_DIR}:/datadir
-      - ./:/app
-    command: ['sh', '-c', 'cd /app && bun install --prod && bun run start']
+      - ../..:/workspace
+    command:
+      ['sh', '-c', 'pnpm install --prod --frozen-lockfile && cd packages/minoro && bun run start']
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost:3000']
       interval: 30s

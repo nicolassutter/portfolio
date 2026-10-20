@@ -1,37 +1,14 @@
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
-FROM oven/bun:1 AS base
-WORKDIR /usr/src/app
+FROM ghcr.io/pnpm/pnpm:12 AS build
+RUN pnpm runtime set node 24 -g
 
-# install dependencies into temp directory
-# this will cache them and speed up future builds
-FROM base AS install
-RUN mkdir -p /temp/dev
-COPY package.json /temp/dev/
-RUN cd /temp/dev && bun install --frozen-lockfile
-
-# install with --production (exclude devDependencies)
-RUN mkdir -p /temp/prod
-COPY package.json /temp/prod/
-RUN cd /temp/prod && bun install --frozen-lockfile --production
-
-# copy node_modules from temp directory
-# then copy all (non-ignored) project files into the image
-FROM base AS prerelease
-COPY --from=install /temp/dev/node_modules node_modules
+WORKDIR /app
 COPY . .
+RUN pnpm install --frozen-lockfile
+RUN pnpm --filter @example/basics build
+RUN pnpm deploy --filter=@example/basics --prod /prod
 
-# [optional] tests & build
+FROM node:24-alpine AS release
+WORKDIR /app
 ENV NODE_ENV=production
-RUN bun run build
-
-# copy production dependencies and source code into final image
-FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/dist dist
-COPY --from=prerelease /usr/src/app/package.json .
-
-# run the app
-USER bun
-ENTRYPOINT [ "bun", "run", "./dist/server/entry.mjs" ]
-
+COPY --from=build /prod ./
+CMD ["node", "./dist/server/entry.mjs"]
