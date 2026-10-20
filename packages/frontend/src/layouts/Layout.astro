@@ -9,6 +9,10 @@ import Header from '../components/Header.vue'
 import Footer from '../components/Footer.astro'
 import { getProfile } from '../modules/content'
 import { cn } from '../modules/utils'
+import {
+  PUBLIC_UMAMI_HOST_URL,
+  PUBLIC_UMAMI_WEBSITE_ID,
+} from 'astro:env/client'
 
 export interface Props {
   meta?: {
@@ -29,8 +33,6 @@ const meta = {
   title: profile.name,
   ...(Astro.props.meta ?? {}),
 }
-const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID
-const umamiHostUrl = import.meta.env.PUBLIC_UMAMI_HOST_URL
 ---
 
 <!doctype html>
@@ -96,13 +98,13 @@ const umamiHostUrl = import.meta.env.PUBLIC_UMAMI_HOST_URL
       import '../modules/theme'
     </script>
 
-    {umamiWebsiteId && umamiHostUrl && (
+    {PUBLIC_UMAMI_WEBSITE_ID && PUBLIC_UMAMI_HOST_URL && (
       <script
         is:inline
         defer
-        src={`${umamiHostUrl}/script.js`}
-        data-website-id={umamiWebsiteId}
-        data-host-url={umamiHostUrl}
+        src={`${PUBLIC_UMAMI_HOST_URL}/script.js`}
+        data-website-id={PUBLIC_UMAMI_WEBSITE_ID}
+        data-host-url={PUBLIC_UMAMI_HOST_URL}
         data-domains='sutter-nicolas.com,www.sutter-nicolas.com'
         data-do-not-track='true'
       ></script>
