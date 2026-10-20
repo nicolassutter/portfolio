@@ -6,7 +6,7 @@
     "node": "^22.0.0"
   },
   "scripts": {
-    "dev": "bunx --bun astro dev",
+    "dev": "bunx --bun astro dev --host",
     "build": "bunx astro build",
     "astro": "bunx --bun astro"
   },
