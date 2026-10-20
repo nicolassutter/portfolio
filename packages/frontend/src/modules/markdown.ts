@@ -1,11 +1,15 @@
-import { marked } from 'marked'
-import markedShiki from 'marked-shiki'
-import { codeToHtml } from 'shiki'
+import { markdownToHtml } from 'satteri'
+import expressiveCode from 'satteri-expressive-code'
+import kansoInk from '../themes/kanso-ink.json'
 
-export const md = marked.use(
-  markedShiki({
-    async highlight(code, lang) {
-      return await codeToHtml(code, { lang, theme: 'catppuccin-macchiato' })
-    },
-  }),
-)
+const code = expressiveCode({ themes: [kansoInk] })
+
+export const md = {
+  async parse(source: string) {
+    return (
+      await markdownToHtml(source, {
+        hastPlugins: [code],
+      })
+    ).html
+  },
+}

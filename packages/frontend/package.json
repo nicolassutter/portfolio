@@ -25,8 +25,8 @@
     "drizzle-orm": "^0.45.4",
     "feed": "^6.0.0",
     "ky": "^2.2.0",
-    "marked": "^18.1.1",
-    "marked-shiki": "^1.2.0",
+    "satteri": "^0.10.5",
+    "satteri-expressive-code": "^0.1.24",
     "slugify": "^1.6.9",
     "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3",
@@ -39,7 +39,6 @@
     "@types/bun": "^1.2.18",
     "@types/node": "^26.6.5",
     "astro": "7.4.1",
-    "shiki": "^4.5.0",
     "type-fest": "^5.10.0",
     "typescript": "6"
   }
