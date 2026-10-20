@@ -68,15 +68,17 @@ export const prerender = false
         </div>
       </div>
 
-      <Image
-        src='/avatar.jpg'
-        alt={`Portrait of ${profile.name ?? 'Nicolas'}`}
-        width={320}
-        height={320}
-        class='relative order-1 aspect-square w-40 justify-self-center rounded-2xl object-cover shadow-lg md:w-48 lg:order-2 lg:w-52'
-        loading='eager'
-        decoding='async'
-      />
+      <div class='glass-surface relative order-1 w-40 justify-self-center rounded-2xl p-1 md:w-48 lg:order-2 lg:w-52'>
+        <Image
+          src='/avatar.jpg'
+          alt={`Portrait of ${profile.name ?? 'Nicolas'}`}
+          width={320}
+          height={320}
+          class='aspect-square w-full rounded-xl object-cover'
+          loading='eager'
+          decoding='async'
+        />
+      </div>
     </section>
 
     <!-- Skills -->

@@ -13,10 +13,10 @@ const triggersClasses = cn(
       inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium
       transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring
       disabled:pointer-events-none disabled:opacity-50 h-9 px-3 gap-1 pl-2.5
-      hover:bg-neutral-100 hover:text-neutral-900
+       hover:bg-muted hover:text-foreground
 
-      data-[disabled]:bg-transparent data-[disabled]:text-neutral-500
-      data-[disabled]:hover:bg-transparent data-[disabled]:hover:text-neutral-500
+       data-[disabled]:bg-transparent data-[disabled]:text-muted-foreground
+       data-[disabled]:hover:bg-transparent data-[disabled]:hover:text-muted-foreground
     `,
 )
 
@@ -26,8 +26,8 @@ const itemsClasses = (page: number) => `
     disabled:pointer-events-none disabled:opacity-50 h-9 w-9
     ${
       page === props.page
-        ? 'bg-neutral-900 text-neutral-50 shadow hover:bg-neutral-900/90'
-        : 'hover:bg-neutral-100 hover:text-neutral-900'
+        ? 'bg-primary text-primary-foreground shadow hover:bg-primary/80'
+        : 'hover:bg-muted hover:text-foreground'
     }
   `
 

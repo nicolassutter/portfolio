@@ -17,7 +17,7 @@ defineProps<{
   <article
     :class="
       cn(
-        'relative p-4 bg-card text-card-foreground rounded-xl border border-border py-6 focus-within:ring-1 focus-within:ring-ring group flex flex-col gap-3',
+        'glass-surface relative p-4 text-card-foreground rounded-xl py-6 focus-within:ring-1 focus-within:ring-ring group flex flex-col gap-3',
         $props.class,
       )
     "
@@ -62,7 +62,7 @@ defineProps<{
       <Button
         as="a"
         :href="project.link"
-        variant="muted"
+        variant="primary"
         target="_blank"
         rel="noopener noreferrer"
         class="group/btn"

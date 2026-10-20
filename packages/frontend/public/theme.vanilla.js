@@ -22,12 +22,7 @@ window.applyTheme = function (theme) {
     theme === 'system' ? window.getSystemTheme() : theme
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Apply the initial theme based on the user's preference or system setting
 
-  const savedTheme =
-    localStorage.getItem(window.themeKey) || window.defaultTheme
+const savedTheme = /** @type {Theme} */(localStorage.getItem(window.themeKey) || window.defaultTheme)
 
-  // @ts-expect-error type string is not assignable to type Theme
-  window.applyTheme(savedTheme)
-})
+window.applyTheme(savedTheme)

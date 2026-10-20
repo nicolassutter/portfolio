@@ -65,7 +65,7 @@ function handleDialogClick(event: MouseEvent) {
     class="fixed z-30 w-full top-2 lg:top-4 xl:top-6 left-0 grid grid-cols-(--default-content-grid) [:where(&>*)]:col-start-2 text-foreground"
   >
     <div
-      class="relative flex items-center justify-end py-2 px-6 rounded-full border border-border backdrop-blur-lg bg-background/60 md:max-w-md md:justify-start mx-auto"
+      class="glass-surface relative flex items-center justify-end py-2 px-6 rounded-full md:max-w-md md:justify-start mx-auto"
     >
       <!-- Desktop Navigation -->
       <nav
@@ -114,7 +114,7 @@ function handleDialogClick(event: MouseEvent) {
           <Button
             v-if="mounted"
             type="button"
-            class="size-full relative p-0"
+            class="glass-surface size-full relative rounded-full p-0"
             :title="`Toggle theme, current theme: ${theme}`"
             :aria-label="`Toggle theme, current theme: ${theme}`"
             @click="toggleTheme"
@@ -154,7 +154,7 @@ function handleDialogClick(event: MouseEvent) {
       class="fixed top-12 left-4 right-4 z-50"
     >
       <nav
-        class="flex flex-col gap-1 p-4 rounded-2xl border border-border backdrop-blur-lg bg-background/95 shadow-lg"
+        class="glass-surface flex flex-col gap-1 rounded-2xl p-4"
         aria-label="Mobile navigation"
         role="navigation"
       >

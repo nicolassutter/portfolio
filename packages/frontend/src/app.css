@@ -50,36 +50,50 @@
   mask-size: 100% 100%;
 }
 
+@utility glass-surface {
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
 :root {
   color-scheme: light;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: var(--color-indigo-800);
-  --primary-foreground: oklch(0.97 0.014 254.604);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.5059 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --background: #f2f1ef;
+  --foreground: #22262d;
+  --card: #e2e1df;
+  --card-foreground: #22262d;
+  --popover: #e2e1df;
+  --popover-foreground: #22262d;
+  --primary: #4d699b;
+  --primary-foreground: #f2f1ef;
+  --secondary: #e2e1df;
+  --secondary-foreground: #22262d;
+  --muted: #e2e1df;
+  --muted-foreground: #6d6d69;
+  --accent: #c7d7e0;
+  --accent-foreground: #22262d;
+  --destructive: #d7474b;
+  --border: #dddddb;
+  --input: #e2e1df;
+  --ring: #c7d7e0;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #f2f1ef;
+  --sidebar-foreground: #22262d;
+  --sidebar-primary: #4d699b;
+  --sidebar-primary-foreground: #f2f1ef;
+  --sidebar-accent: #c7d7e0;
+  --sidebar-accent-foreground: #22262d;
+  --sidebar-border: #dddddb;
+  --sidebar-ring: #c7d7e0;
+  --glass-background: rgb(242 241 239 / 72%);
+  --glass-border: rgb(255 255 255 / 68%);
+  --glass-highlight: rgb(255 255 255 / 80%);
+  --glass-shadow: 0 12px 32px rgb(34 38 45 / 8%);
 
   /* other variables */
   --base-container: calc(1536rem / 16);
@@ -88,33 +102,38 @@
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  --background: #14171d;
+  --foreground: #c5c9c7;
+  --card: #22262d;
+  --card-foreground: #c5c9c7;
+  --popover: #22262d;
+  --popover-foreground: #c5c9c7;
 
-  --primary: var(--color-indigo-400);
-  --primary-foreground: oklch(0.379 0.146 265.522);
+  --primary: #8ba4b0;
+  --primary-foreground: #14171d;
 
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --secondary: #393b42;
+  --secondary-foreground: #c5c9c7;
+  --muted: #22262d;
+  --muted-foreground: #9e9b93;
+  --accent: #393b42;
+  --accent-foreground: #c5c9c7;
+  --destructive: #c34043;
+  --border: #22262d;
+  --input: #22262d;
+  --ring: #658594;
+  --sidebar: #14171d;
+  --sidebar-foreground: #c5c9c7;
+  --sidebar-primary: #8ba4b0;
+  --sidebar-primary-foreground: #14171d;
+  --sidebar-accent: #393b42;
+  --sidebar-accent-foreground: #c5c9c7;
+  --sidebar-border: #22262d;
+  --sidebar-ring: #658594;
+  --glass-background: rgb(34 38 45 / 72%);
+  --glass-border: rgb(197 201 199 / 16%);
+  --glass-highlight: rgb(255 255 255 / 8%);
+  --glass-shadow: 0 12px 32px rgb(0 0 0 / 24%);
 }
 
 :root {
