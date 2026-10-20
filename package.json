@@ -12,7 +12,7 @@
     "format": "oxfmt",
     "format:check": "oxfmt --check"
   },
-  "engine": {
+  "engines": {
     "node": "^22.0.0"
   },
   "workspaces": [
