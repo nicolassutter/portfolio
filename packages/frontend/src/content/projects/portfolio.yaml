@@ -1,0 +1,17 @@
+{
+  "id": "7e4b580b-82aa-483e-a82f-225e4a601ab2",
+  "title": "Portfolio",
+  "link": "https://sutter-nicolas.com",
+  "technologies": [
+    "Astro",
+    "TypeScript",
+    "SolidJS",
+    "Uno CSS",
+    "Git",
+    "Netlify"
+  ],
+  "description": "My personal website that you are currently viewing ;).",
+  "thumbnail": null,
+  "dateCreated": null,
+  "dateUpdated": "2025-07-16T15:28:54Z"
+}

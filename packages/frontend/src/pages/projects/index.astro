@@ -2,24 +2,8 @@
 import Layout from '../../layouts/Layout.astro'
 import { md } from '../../modules/markdown'
 import Typography from '../../components/Typography.vue'
-import { getProjects } from '../../modules/requests'
+import { getProjects } from '../../modules/content'
 import ProjectCard from '../../components/ProjectCard.vue'
-import { BlogPagination } from '../../components/BlogPagination'
-import { z } from 'zod'
-
-export const prerender = false
-
-// const currentPage = z.coerce
-//   .number()
-//   .catch(1)
-//   .parse(Astro.url.searchParams.get('p') ?? '1')
-
-// const { posts, total } = await getAllPosts({
-//   page: currentPage,
-// })
-
-// const profile = await getProfile()
-// const bio = await md.parse(profile.bio ?? '')
 const projects = await getProjects()
 const mappedProjects = await Promise.all(
   projects.map(async (project) => {
@@ -44,13 +28,6 @@ const mappedProjects = await Promise.all(
           <ProjectCard {project} />
         ))}
       </div>
-      <!---->
-      <!-- <div class='mt-4'> -->
-      <!--   <BlogPagination -->
-      <!--     count={total} -->
-      <!--     page={currentPage} -->
-      <!--   /> -->
-      <!-- </div> -->
     </section>
   </main>
 </Layout>

@@ -1,0 +1,130 @@
+- id: 19368320-26f4-48b6-a125-cf4af088b9fe
+  name: AFFiNE
+  description: Self-hosted knowledge base (Notion alternative) and note-taking
+    platform with block-based editing.
+  why: Knowledge management, privacy
+  category: 392a04ec-7193-4133-b073-e1b671cd8b8b
+- id: ed0191a4-691a-4819-a9ad-ff5ff3e79177
+  name: ArchiSteamFarm
+  description: Steam farming bot for collecting trading cards and managing Steam
+    account automation. Yes this is useless I know.
+  why: Steam card farming, automation
+  category: 395c18f0-fe44-442b-b54a-5c72d9ea2a7c
+- id: 01157e85-f406-4190-bdec-7ccc0ec6d3a4
+  name: Authentik
+  description: Identity Provider for critical and private services such as
+    Portainer and Dockge
+  why: Authentication and Authorization
+  category: a6b5f65f-3309-49e2-9c9a-29f883751e6b
+- id: 735333ad-6f0d-4a78-a1d5-ab329ab4b60b
+  name: Caddy
+  description: Web server with automatic HTTPS running on home server for local services.
+  why: Simple config, automatic certificates
+  category: a6b5f65f-3309-49e2-9c9a-29f883751e6b
+- id: e60e74da-1940-4621-9818-e38e5f123ba4
+  name: Cross-Seed
+  description: Automatically finds cross-seedable torrents to maximize seeding and ratio.
+  why: Seeding optimization, ratios
+  category: 395c18f0-fe44-442b-b54a-5c72d9ea2a7c
+- id: c6a9f8b8-6c06-471a-88df-f5102a861afa
+  name: Dockge
+  description: Docker Compose stack manager with a clean web UI for managing compose files.
+  why: Visual compose management
+  category: a6b5f65f-3309-49e2-9c9a-29f883751e6b
+- id: 4f982ed3-a37d-46ac-9d18-f2de1da14b98
+  name: FlareSolverr
+  description: Proxy server to bypass Cloudflare protection for automated tools
+    and scrapers.
+  why: Bypass protection, automation
+  category: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+- id: 63bb2c12-30d3-4bad-8218-46ee35f2e226
+  name: Homebox
+  description: Custom made homelab UI to manage my services.
+  why: Centralized management, custom dashboard
+  category: f82c03a7-34ef-4afa-a4e0-92556b74a66c
+- id: c2e73210-ac7a-4596-b5b7-1989b52410e7
+  name: Immich
+  description: Self-hosted photo management with ML features, face recognition,
+    and mobile apps.
+  why: Google Photos alternative, privacy
+  category: f82c03a7-34ef-4afa-a4e0-92556b74a66c
+- id: 47fcf5a9-cef1-4947-8afb-c47db751413a
+  name: Jellyfin
+  description: Streaming Linux ISO's straight to my devices!
+  why: Media streaming
+  category: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+- id: a9204a0d-3d2a-461d-a969-6903048378e4
+  name: Jellyseerr
+  description:
+    Request management system for Jellyfin with user-friendly interface
+    for media requests.
+  why: User requests, approval workflow
+  category: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+- id: 27460279-3e75-4abd-aefc-b67ded46e356
+  name: Personal Web Apps
+  description:
+    'Various personal projects: trip blog, bank app, job tracker, todo
+    apps with custom backends.'
+  why: Learning, personal tools
+  category: 392a04ec-7193-4133-b073-e1b671cd8b8b
+- id: e5703ff2-1ac3-4e27-94d5-4cb30fc3b79f
+  name: PocketBase
+  description: Multiple instances serving as backends for personal projects with
+    auth and database.
+  why: Rapid prototyping, simple backend
+  category: 392a04ec-7193-4133-b073-e1b671cd8b8b
+- id: 6495cfa4-0509-40e6-95fd-e5c115b76566
+  name: Portainer
+  description: Docker management UI running on both servers for container orchestration.
+  why: Visual container management
+  category: a6b5f65f-3309-49e2-9c9a-29f883751e6b
+- id: 4f09f65b-5d61-427c-b924-77e84f949b75
+  name: Prowlarr
+  description: Indexer manager that integrates with Sonarr and Radarr for Linux
+    ISOs discovery.
+  why: Centralized indexer management
+  category: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+- id: 5a736a8d-ef59-4920-bde9-faafe7696830
+  name: qBittorrent + Gluetun
+  description: Torrent client running through VPN container for private downloading.
+  why: Private downloading, VPN protection
+  category: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+- id: e230b10d-838c-40e1-a340-f5d815d8d01b
+  name: rclone + hetzner storage box
+  description: |
+    1 TB of storage mounted via rclone for automated backups and personal cloud
+  why: Object storage, S3 compatibility, backups
+  category: 395c18f0-fe44-442b-b54a-5c72d9ea2a7c
+- id: b2104326-4d9f-443a-940d-85f8135302d9
+  name: restic
+  description: Automated restic backups for my critical services
+  why: Data protection, automation
+  category: 395c18f0-fe44-442b-b54a-5c72d9ea2a7c
+- id: 7f56d11c-39dc-4b88-a4c7-bcba7bf419d9
+  name: Sonarr & Radarr
+  description: Automated Linux ISOs management.
+  why: Automation, quality control
+  category: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+- id: a3386e26-0cb8-42dc-9761-38ce2404f8b1
+  name: Stirling PDF
+  description: Web-based PDF toolkit for merging, splitting, and manipulating PDF files.
+  why: PDF processing, privacy-focused
+  category: f82c03a7-34ef-4afa-a4e0-92556b74a66c
+- id: eacd5547-7874-4a50-bc10-be7ae5fe6cc7
+  name: Syncthing
+  description: Continuous file synchronization between devices without cloud dependencies.
+  why: Decentralized sync, privacy
+  category: f82c03a7-34ef-4afa-a4e0-92556b74a66c
+- id: d1a2b96a-f078-4bb8-8e6d-8bf1f0b5019f
+  name: Tailscale
+  description: I run a Tailscale Network between my devices for secure resource
+    communication and DNS.
+  why: Secure remote access, easy setup
+  category: 392a04ec-7193-4133-b073-e1b671cd8b8b
+- id: eceeb359-7250-4c83-ac17-427289fa3bd1
+  name: Vaultwarden
+  description:
+    Self-hosted Bitwarden server on VPS for password management across
+    all devices.
+  why: Password security, self-hosted
+  category: f82c03a7-34ef-4afa-a4e0-92556b74a66c

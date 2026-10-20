@@ -6,19 +6,18 @@ import Typography from '../components/Typography.vue'
 
 import Button from '../components/Button.vue'
 import { ArrowRight as ArrowRightIcon } from '@lucide/vue'
-import { getLatestPosts, getProfile, getTechStacks } from '../modules/requests'
+import { getAllPosts, getProfile, getTechStacks } from '../modules/content'
 import BlogPost from '../components/BlogPosts.vue'
 import StackExplorer from '../components/StackExplorer.vue'
 
 const [posts, profile, techStacks] = await Promise.all([
-  getLatestPosts(),
+  getAllPosts(),
   getProfile(),
   getTechStacks(),
 ])
+const latestPosts = posts.slice(0, 3)
 
 const bio = await md.parse(profile.bio ?? '')
-
-export const prerender = false
 ---
 
 <Layout
@@ -99,7 +98,7 @@ export const prerender = false
       </Typography>
 
       <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
-        {posts.map((post) => (
+        {latestPosts.map((post) => (
           <li>
             <BlogPost
               {post}

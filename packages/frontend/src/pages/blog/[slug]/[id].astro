@@ -1,21 +1,22 @@
 ---
 import Layout from '../../../layouts/Layout.astro'
 import { md } from '~/src/modules/markdown'
-import { getProfile } from '~/src/modules/requests'
-import { getPostById } from '~/src/modules/requests'
-import { MINORO_URL } from 'astro:env/client'
+import { getAllPosts, getProfile } from '~/src/modules/content'
 import Typography from '../../../components/Typography.vue'
+import slugify from 'slugify'
 
-const profile = await getProfile()
-
-export const prerender = false
-
-if (!Astro.params.id) {
-  throw new Error('Post ID is required')
+export async function getStaticPaths() {
+  const posts = await getAllPosts()
+  return posts.map((post) => ({
+    params: { slug: slugify(post.title, { lower: true }), id: post.id },
+    props: { post },
+  }))
 }
 
-const post = await getPostById(Astro.params.id)
+const profile = await getProfile()
+const { post } = Astro.props
 const content = await md.parse(post.content ?? '')
+const url = `https://sutter-nicolas.com/blog/${slugify(post.title, { lower: true })}/${post.id}/`
 ---
 
 <Layout
@@ -23,7 +24,7 @@ const content = await md.parse(post.content ?? '')
     title: profile.name ?? '',
     description: post.excerpt ?? '',
     image: '/avatar.jpg',
-    url: 'https://sutter-nicolas.com/',
+    url,
   }}
   contentContainerClasses='md:grid-cols-[auto_minmax(0,65ch)_auto]'
 >
@@ -31,7 +32,7 @@ const content = await md.parse(post.content ?? '')
   <header role='banner'>
     {post.thumbnail && (
       <img
-        src={`${MINORO_URL}/assets/${post.thumbnail}`}
+        src={post.thumbnail}
         alt=''
         class='rounded-xl w-full mb-8 aspect-video object-cover'
       />

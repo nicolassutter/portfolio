@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ExternalLinkIcon } from '@lucide/vue'
-import { MINORO_URL } from 'astro:env/client'
 import Typography from './Typography.vue'
 import Badge from './Badge.vue'
 import Button from './Button.vue'
 import { cn } from '../modules/utils'
-import type { Project } from '../modules/requests'
+import type { Project } from '../modules/content'
 
 defineProps<{
   project: Project
@@ -24,7 +23,7 @@ defineProps<{
   >
     <img
       v-if="typeof project.thumbnail === 'string'"
-      :src="`${MINORO_URL}/assets/${project.thumbnail}`"
+      :src="project.thumbnail"
       alt=""
       class="rounded-lg mb-2 w-full aspect-video object-cover"
     />

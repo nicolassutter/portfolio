@@ -1,0 +1,28 @@
+{
+  "id": "39df4e34-808e-4be7-a527-9ccb5d12853f",
+  "name": "Nicolas Sutter",
+  "email": "contact@sutter-nicolas.com",
+  "bio": "I am currently a **freelance full-stack software engineer** after 5 years of full-time web dev and a year as a **Lead Developer**.\n\n\nI love to discover new technologies (and the JS ecosystem changes every 2 minutes, so that's nice I guess 🙃).\n\nI also love making pizzas, but I am not sure it is relevant here. 🍕\n\nOn a more serious note, I am passionate about software and hardware as I love to solve problems and build things.\n\nI currently host my own home media server on Docker with Caddy and a whole lot of open source projets.\n\nI am looking for missions or full-time jobs opportunitites based on **React, Vue.js or SolidJS (❤️),  Node.js and TypeScript.**\n\nI believe to be a good fit for a team that values quality, performance and maintainability; especially with all the JS based tech coming out these days.",
+  "socials": [
+    {
+      "name": "Github",
+      "url": "https://github.com/nicolassutter",
+      "icon": "grommet-icons:github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/nicolas-sutter-abb18b188",
+      "icon": "grommet-icons:linkedin-option"
+    },
+    {
+      "name": "RSS",
+      "url": "/rss.xml",
+      "icon": "grommet-icons:rss"
+    },
+    {
+      "name": "Malt",
+      "url": "https://www.malt.fr/profile/nicolassutter1",
+      "icon": "/malt.svg"
+    }
+  ]
+}

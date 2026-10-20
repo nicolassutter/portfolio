@@ -1,21 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { md } from '../../modules/markdown'
-import Typography from '../../components/Typography.vue'
-import { getAllPosts, getProfile } from '../../modules/requests'
-import BlogPost from '../../components/BlogPosts.vue'
-import BlogPagination from '../../components/BlogPagination.vue'
-import { z } from 'zod'
-
-export const prerender = false
-
-const currentPage = z.coerce
-  .number()
-  .catch(1)
-  .parse(Astro.url.searchParams.get('p') ?? '1')
-const { posts, total } = await getAllPosts({
-  page: currentPage,
-})
+import { getAllPosts, getProfile } from '../../modules/content'
+import BlogListing from '../../components/BlogListing.astro'
+const allPosts = await getAllPosts()
+const posts = allPosts.slice(0, 10)
 const profile = await getProfile()
 const bio = await md.parse(profile.bio ?? '')
 ---
@@ -28,26 +17,9 @@ const bio = await md.parse(profile.bio ?? '')
     url: 'https://sutter-nicolas.com/',
   }}
 >
-  <main
-    role='main'
-    class=''
-  >
-    <!-- Latest blog posts -->
-    <section class=''>
-      <Typography tag='h2'>Blog posts</Typography>
-
-      <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
-        {posts.map((post) => (
-          <BlogPost {post} />
-        ))}
-      </div>
-
-      <div class='mt-4'>
-        <BlogPagination
-          count={total}
-          page={currentPage}
-        />
-      </div>
-    </section>
-  </main>
+  <BlogListing
+    {posts}
+    page={1}
+    total={allPosts.length}
+  />
 </Layout>

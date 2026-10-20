@@ -7,7 +7,7 @@ import '@fontsource/geist-sans/700.css' // Specify weight
 import '../app.css'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.astro'
-import { getProfile } from '../modules/requests'
+import { getProfile } from '../modules/content'
 import { cn } from '../modules/utils'
 
 export interface Props {
@@ -50,6 +50,10 @@ const meta = {
     <meta
       name='generator'
       content={Astro.generator}
+    />
+    <link
+      rel='canonical'
+      href={meta.url}
     />
 
     <title>{meta.title}</title>

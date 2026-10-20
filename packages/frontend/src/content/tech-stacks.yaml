@@ -1,0 +1,150 @@
+- id: 385e2f7b-f7e3-47f9-a1e4-6a73f4ddc1bd
+  name: Api Development
+  description: RESTful APIs, GraphQL, and microservices
+  emoji: ⚡
+  categories:
+    Frameworks:
+      - Fastify
+      - Hono
+      - Elysia
+      - Fiber
+      - Echo
+    API Types:
+      - REST
+      - GraphQL
+      - gRPC (Protocol Buffers)
+      - tRPC
+      - WebSockets
+    Database:
+      - PostgreSQL
+      - Redis
+      - SQLite
+    Documentation:
+      - OpenAPI
+      - Postman
+      - Insomnia
+      - GraphQL Playground
+    Testing:
+      - Vitest
+      - Jest
+      - Cypress
+      - Playwright
+      - Testing Library
+- id: f0f675b0-d5ef-4eea-8544-aab8fd33c0df
+  name: Cloud Infrastructure
+  description: Cloud architecture and infrastructure management
+  emoji: ☁️
+  categories:
+    Cloud Providers:
+      - Hetzner
+    Infrastructure as Code:
+      - Terraform
+    Containerization:
+      - Docker
+      - Docker Compose
+      - Docker Swarm
+    Monitoring:
+      - Prometheus
+      - Grafana
+      - Portainer
+      - Dockge
+    Reverse Proxy:
+      - Caddy
+      - Cloudflare Tunnels
+      - Traefik
+    OS:
+      - Debian
+      - Nix
+      - Arch
+- id: dddfdc8c-96b7-4f8f-8b8f-b1b0cd9faf63
+  name: Mobile Application
+  description: Native and cross-platform mobile applications
+  emoji: 📱
+  categories:
+    Cross-Platform:
+      - React Native
+      - Expo
+    Backend:
+      - Pocketbase
+      - Supabase
+      - Node.js
+      - Python
+      - Golang
+    State Management:
+      - Zustand
+- id: 61edb09e-2614-4cf8-90e9-65c503c17d9a
+  name: Web Applications
+  description: Full-stack web applications with dynamic functionality
+  emoji: 🌐
+  categories:
+    Frontend:
+      - SolidJS
+      - Solid Start
+      - Tanstack
+      - Vue.js
+      - React
+      - TypeScript
+      - Tailwind CSS
+      - Uno CSS
+      - Vite
+    Backend:
+      - Node.js
+      - Bun
+      - Golang
+      - tRPC
+      - Fastify
+      - hono
+      - Elysia
+    Database:
+      - PostgreSQL
+      - SQLite
+      - Redis
+      - Supabase
+    Authentication:
+      - Better Auth
+      - Pocketbase
+      - Directus
+    Deployment:
+      - Vercel
+      - Netlify
+      - Railway
+      - Hetzner
+      - Coolify
+    Testing:
+      - Vitest
+      - Jest
+      - Cypress
+      - Playwright
+      - Testing Library
+- id: caa2f34d-c7f3-4a37-b779-4ba1e4fa29d2
+  name: Website
+  description: Marketing sites, blogs, and content-focused websites
+  emoji: 📄
+  categories:
+    Static Generators:
+      - Solid Start
+      - Nuxt
+      - Astro
+    Styling:
+      - Tailwind CSS
+      - CSS Modules
+      - Styled Components
+    CMS:
+      - Strapi
+      - Directus
+      - Pocketbase
+    Analytics:
+      - Umami
+      - Plausible
+    Deployment:
+      - Vercel
+      - Netlify
+      - GitHub Pages
+      - Cloudflare Pages
+      - Hetzner
+    Testing:
+      - Vitest
+      - Jest
+      - Cypress
+      - Playwright
+      - Testing Library

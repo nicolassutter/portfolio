@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { getHomelabData } from '../modules/requests'
+import type { getHomelabData } from '../modules/content'
 
 defineProps<{
   learnings: Awaited<ReturnType<typeof getHomelabData>>['learnings']

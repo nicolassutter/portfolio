@@ -1,0 +1,17 @@
+{
+  "id": "67ac4421-5dcc-4801-bd07-be0327ecd947",
+  "title": "PopLab",
+  "link": "https://app.poplab.education/",
+  "technologies": [
+    "TypeScript",
+    "JSDoc",
+    "Vue.js",
+    "CSS",
+    "Git",
+    "WebSockets"
+  ],
+  "description": "While working with **Alsacréations**, I had the opportunity to contribute to the development of the PopLab app. It is a platform that facilitates communication between teachers and students. It is a large project that requires a significant amount of time and personal and professional investment.",
+  "thumbnail": null,
+  "dateCreated": null,
+  "dateUpdated": "2025-07-16T15:28:43Z"
+}

@@ -43,7 +43,10 @@ const itemsClasses = (page: number) => `
     :count="count"
     :page-size="10"
     :sibling-count="2"
-    :get-page-url="(details) => `?p=${details.page}`"
+    :get-page-url="
+      (details) =>
+        details.page === 1 ? '/blog/' : `/blog/page/${details.page}/`
+    "
   >
     <Pagination.Context v-slot="pagination">
       <Pagination.PrevTrigger as-child>

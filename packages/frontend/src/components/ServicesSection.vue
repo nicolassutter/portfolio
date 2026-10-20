@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import DynamicIcon from './DynamicIcon.vue'
-import type { getHomelabServices } from '../modules/requests'
+import type { getHomelabServices } from '../modules/content'
 
 defineProps<{
   services: Awaited<ReturnType<typeof getHomelabServices>>

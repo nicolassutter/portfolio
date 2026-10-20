@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from 'astro'
+import Layout from '../../../layouts/Layout.astro'
+import { md } from '../../../modules/markdown'
+import { getAllPosts, getProfile } from '../../../modules/content'
+import BlogListing from '../../../components/BlogListing.astro'
+
+export const getStaticPaths = (async () => {
+  const posts = await getAllPosts()
+  const pages = Math.ceil(posts.length / 10)
+
+  return Array.from({ length: Math.max(pages - 1, 0) }, (_, index) => {
+    const currentPage = index + 2
+    return {
+      params: { page: String(currentPage) },
+      props: {
+        posts: posts.slice((currentPage - 1) * 10, currentPage * 10),
+        currentPage,
+        total: posts.length,
+      },
+    }
+  })
+}) satisfies GetStaticPaths
+
+const profile = await getProfile()
+const bio = await md.parse(profile.bio)
+const { posts, currentPage, total } = Astro.props
+---
+
+<Layout
+  meta={{
+    title: profile.name,
+    description: bio,
+    image: '/avatar.jpg',
+    url: 'https://sutter-nicolas.com/',
+  }}
+>
+  <BlogListing
+    {posts}
+    page={currentPage}
+    {total}
+  />
+</Layout>

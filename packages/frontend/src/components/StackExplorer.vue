@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TechStack } from '../modules/requests'
+import type { TechStack } from '../modules/content'
 
 defineProps<{
   techStacks: TechStack[]

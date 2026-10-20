@@ -4,9 +4,8 @@ import HeroSection from '../../components/HeroSection.vue'
 import ArchitectureSection from '../../components/ArchitectureSection.vue'
 import ServicesSection from '../../components/ServicesSection.vue'
 import LearningSection from '../../components/LearningSection.vue'
-import { getHomelabServices, getHomelabData } from '../../modules/requests'
+import { getHomelabServices, getHomelabData } from '../../modules/content'
 
-export const prerender = false
 const homelabServices = await getHomelabServices()
 const homelabData = await getHomelabData()
 ---

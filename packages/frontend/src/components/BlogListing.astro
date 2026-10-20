@@ -1,0 +1,32 @@
+---
+import type { Post } from '../modules/content'
+import BlogPost from './BlogPosts.vue'
+import BlogPagination from './BlogPagination.vue'
+
+interface Props {
+  posts: Post[]
+  page: number
+  total: number
+}
+
+const { posts, page, total } = Astro.props
+---
+
+<main role='main'>
+  <section>
+    <h2 class='text-3xl font-semibold text-foreground'>Blog posts</h2>
+
+    <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6'>
+      {posts.map((post) => (
+        <BlogPost {post} />
+      ))}
+    </div>
+
+    <div class='mt-4'>
+      <BlogPagination
+        count={total}
+        {page}
+      />
+    </div>
+  </section>
+</main>

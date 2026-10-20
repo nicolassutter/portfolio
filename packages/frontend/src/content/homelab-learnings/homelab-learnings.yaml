@@ -1,0 +1,74 @@
+{
+  "id": "9312d9da-6251-4ce2-be16-95def66ecb12",
+  "learnings": {
+    "technicalSkills": [
+      {
+        "text": "Docker orchestration and container networking"
+      },
+      {
+        "text": "Reverse proxy configuration (Traefik, Caddy)"
+      },
+      {
+        "text": "VPN tunneling and secure remote access"
+      },
+      {
+        "text": "Multi-server architecture and service distribution"
+      },
+      {
+        "text": "Automated media management and *arr stack integration"
+      },
+      {
+        "text": "Self-hosted alternatives to cloud services"
+      },
+      {
+        "text": "Database management (PostgreSQL, Redis, MariaDB)"
+      }
+    ],
+    "keyLessons": [
+      {
+        "title": "Split Critical vs. Experimental",
+        "description": "Running critical services (Nextcloud, Vaultwarden) on a VPS while keeping experimental and media services at home. Learned the hard way when the cat chewed through cables! 🐈"
+      },
+      {
+        "title": "Automation Saves Sanity",
+        "description": "Building the complete *arr stack with Prowlarr, Autobrr, and Cross-Seed taught me that spending time on automation upfront saves hours of manual work later."
+      },
+      {
+        "title": "Security Through Tunneling",
+        "description": "Using Cloudflare tunnels and WireGuard instead of port forwarding. No open ports, better security, and easier management across multiple locations."
+      },
+      {
+        "title": "Redundancy is Worth It",
+        "description": "Running both Plex and Jellyfin, multiple deployment platforms (Coolify + custom), and backup solutions. When one fails, the other keeps things running."
+      }
+    ],
+    "architecturePhases": [
+      {
+        "title": "Phase 1: Single Pi",
+        "description": "Started with a Raspberry Pi running basic services. Learned Docker basics and container fundamentals."
+      },
+      {
+        "title": "Phase 2: Home Server",
+        "description": "Upgraded to dedicated hardware. Built the media stack, learned about networking, reverse proxies, and automation."
+      },
+      {
+        "title": "Phase 3: Hybrid Cloud",
+        "description": "Added VPS for critical services. Learned about service distribution, tunneling, and high availability patterns."
+      }
+    ],
+    "biggestChallenges": [
+      {
+        "title": "Container Networking Complexity",
+        "description": "Getting qBittorrent to work through Gluetun VPN container while still being accessible to Sonarr/Radarr. Learned about Docker networks and container communication."
+      },
+      {
+        "title": "SSL Certificate Management",
+        "description": "Managing certificates across multiple domains and services. Caddy's and Traefik's automatic Let's Encrypt integration was a game-changer."
+      },
+      {
+        "title": "Resource Management",
+        "description": "Balancing 40+ containers across limited resources. Learned about resource limits, monitoring, and when to scale horizontally vs. vertically."
+      }
+    ]
+  }
+}

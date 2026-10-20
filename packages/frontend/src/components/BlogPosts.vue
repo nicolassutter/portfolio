@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import slugify from 'slugify'
-import { MINORO_URL } from 'astro:env/client'
 import Button from './Button.vue'
 import { cn } from '../modules/utils'
-import type { Post } from '../modules/requests'
+import type { Post } from '../modules/content'
 
 defineProps<{
   post: Post
@@ -27,7 +26,7 @@ const typographyP = 'text-base'
   >
     <img
       v-if="post.thumbnail"
-      :src="`${MINORO_URL}/assets/${post.thumbnail}`"
+      :src="post.thumbnail"
       alt=""
       class="rounded-lg w-full aspect-video object-cover"
     />

@@ -1,0 +1,29 @@
+- id: 392a04ec-7193-4133-b073-e1b671cd8b8b
+  name: Development & Personal Projects
+  description: Custom applications, development tools, knowledge management
+    systems, and personal project backends built for learning and specific use
+    cases.
+  icon: lucide:braces
+- id: a6b5f65f-3309-49e2-9c9a-29f883751e6b
+  name: Infrastructure & Management
+  description: Core infrastructure services including reverse proxies, container
+    management, deployment platforms, and networking tools that form the
+    backbone of the homelab.
+  icon: mdi:docker
+- id: 547f84c4-366e-4873-86f4-0a7d4a9ddfc0
+  name: Media & Entertainment
+  description: Media streaming, management, and automation services including
+    Plex, Jellyfin, and the *arr stack for content discovery and organization.
+  icon: lucide:tv-minimal
+- id: f82c03a7-34ef-4afa-a4e0-92556b74a66c
+  name: Personal & Productivity
+  description: Self-hosted alternatives to cloud services for personal use
+    including file storage, password management, photo management, and
+    productivity tools.
+  icon: lucide:image
+- id: 395c18f0-fe44-442b-b54a-5c72d9ea2a7c
+  name: Utilities & Tools
+  description: Supporting services and utilities that enhance other applications
+    including backup solutions, automation tools, and specialized proxy
+    services.
+  icon: lucide:wrench

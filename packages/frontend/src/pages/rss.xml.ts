@@ -1,16 +1,9 @@
 import { Feed } from 'feed'
-import { getProfile, getAllPosts } from '../modules/requests'
+import { getProfile, getAllPosts } from '../modules/content'
 import slugify from 'slugify'
 
-export const prerender = false
-
 export async function GET() {
-  const [posts, profile] = await Promise.all([
-    getAllPosts({
-      perPage: 100, // Adjust as needed for the number of posts you want in the feed
-    }),
-    getProfile(),
-  ])
+  const [posts, profile] = await Promise.all([getAllPosts(), getProfile()])
 
   const SITE_URL = 'https://sutter-nicolas.com'
 
@@ -37,15 +30,15 @@ export async function GET() {
     },
   })
 
-  const promises = posts.posts.map(async (post) => {
+  const promises = posts.map(async (post) => {
     if (!post.title) return
 
     feed.addItem({
       title: post.title,
       id: post.id,
       link: `${SITE_URL}/blog/${slugify(post.title, { lower: true })}/${post.id}`,
-      content: post.excerpt ?? '',
-      date: new Date(),
+      content: post.excerpt,
+      date: post.dateCreated,
       author: [
         {
           name: 'Sutter Nicolas',
