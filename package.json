@@ -7,7 +7,7 @@
   "packageManager": "pnpm@12.14.0",
   "scripts": {
     "dev": "pnpm -r --parallel --if-present run dev",
-    "run:minoro": "pnpm --filter portfolio-minoro start",
+    "build": "pnpm --filter @example/basics build",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "format": "oxfmt",
@@ -26,6 +26,7 @@
     "ofetch": "^1.4.1",
     "oxfmt": "^0.73.0",
     "oxlint": "^1.88.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "wrangler": "4.70.0"
   }
 }

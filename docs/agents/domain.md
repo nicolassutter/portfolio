@@ -20,9 +20,7 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 │   ├── 0001-event-sourced-orders.md
 │   └── 0002-postgres-for-write-model.md
 └── packages/
-    ├── database/
-    ├── frontend/
-    └── minoro/
+    └── frontend/
 ```
 
 ## Use the glossary's vocabulary

@@ -4,10 +4,10 @@ injectWorkspacePackages: true
 syncInjectedDepsAfterScripts:
   - build
 minimumReleaseAgeExclude:
-  - '@astrojs/node@11.1.9'
-  - '@astrojs/vercel@11.0.16'
   - '@astrojs/vue@7.1.1'
   - '@lucide/vue@1.60.0'
   - astro@7.4.1
 allowBuilds:
   esbuild: true
+  sharp: true
+  workerd: true
