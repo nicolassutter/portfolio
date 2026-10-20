@@ -19,7 +19,6 @@ export const techStacks = sqliteTable('tech_stacks', {
   id: uuid(),
   name: text({ length: 255 }),
   description: text(),
-  emoji: text({ length: 255 }),
   categories: text({ mode: 'json' }).$type<Record<string, string[]>>(),
 })
 

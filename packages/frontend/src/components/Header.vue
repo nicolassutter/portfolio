@@ -3,11 +3,6 @@ import { ref, onMounted, useId, useTemplateRef } from 'vue'
 import { Moon, Sun, Monitor, Menu, X } from '@lucide/vue'
 import Button from './Button.vue'
 import { useTheme } from '../modules/theme'
-import type { Profile } from '../modules/requests'
-
-defineProps<{
-  profile: Profile
-}>()
 
 const { theme, setTheme } = useTheme()
 
@@ -54,7 +49,9 @@ function handleDialogClose() {
 // Handle backdrop click
 function handleDialogClick(event: MouseEvent) {
   const path = event.composedPath()
-  const isInDialog = path.includes(dialogContainerRef.value)
+  const isInDialog = dialogContainerRef.value
+    ? path.includes(dialogContainerRef.value)
+    : false
   if (!isInDialog) {
     closeMobileMenu()
   }
@@ -68,43 +65,29 @@ function handleDialogClick(event: MouseEvent) {
     class="fixed z-30 w-full top-2 lg:top-4 xl:top-6 left-0 grid grid-cols-(--default-content-grid) [:where(&>*)]:col-start-2 text-foreground"
   >
     <div
-      class="flex items-center justify-between gap-4 p-4 rounded-full border border-border backdrop-blur-lg bg-background/60"
+      class="relative flex items-center justify-end py-2 px-6 rounded-full border border-border backdrop-blur-lg bg-background/60 md:max-w-md md:justify-start mx-auto"
     >
-      <a
-        href="/"
-        class="transition-colors duration-300 ease-in-out font-custom flex shrink-0 items-center gap-2 text-xl font-bold"
-        aria-label="Home"
-        title="Home"
+      <!-- Desktop Navigation -->
+      <nav
+        class="hidden items-center gap-6 md:flex"
+        aria-label="Main navigation"
+        role="navigation"
       >
-        <span
-          class="transition-opacity duration-200 ease-in-out text-content"
-          aria-hidden="true"
+        <div
+          v-for="link in links"
+          :key="link.href"
+          class="relative"
         >
-          {{ profile.name }}
-        </span>
-      </a>
-
-      <div class="flex items-center gap-2 md:gap-4">
-        <!-- Desktop Navigation -->
-        <nav
-          class="hidden items-center gap-6 md:flex"
-          aria-label="Main navigation"
-          role="navigation"
-        >
-          <div
-            v-for="link in links"
-            :key="link.href"
-            class="relative"
+          <a
+            :href="link.href"
+            class="inline-block ease-in-out text-sm font-medium capitalize transition-colors duration-200 relative py-1 px-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:text-primary"
           >
-            <a
-              :href="link.href"
-              class="inline-block ease-in-out text-sm font-medium capitalize transition-colors duration-200 relative py-1 px-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full hover:text-primary"
-            >
-              {{ link.label }}
-            </a>
-          </div>
-        </nav>
+            {{ link.label }}
+          </a>
+        </div>
+      </nav>
 
+      <div class="flex items-center gap-2 md:ml-6">
         <!-- Mobile Menu Button -->
         <Button
           type="button"

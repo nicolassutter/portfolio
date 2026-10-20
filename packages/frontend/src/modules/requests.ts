@@ -46,7 +46,7 @@ export async function getPostById(id: string) {
 export async function getProfile() {
   return db.query.profile.findFirst()
 }
-export type Profile = Awaited<ReturnType<typeof getProfile>>
+export type Profile = NonNullable<Awaited<ReturnType<typeof getProfile>>>
 
 export async function getTechStacks() {
   return db.query.techStacks.findMany()

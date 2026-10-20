@@ -65,7 +65,6 @@ const TechStack = z
   .pick({
     id: true,
     name: true,
-    emoji: true,
   })
 const TechStackDetails = z
   .object({

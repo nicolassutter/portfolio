@@ -51,7 +51,6 @@ await seed(db, schema, { count: 10 }).refine((f) => ({
   techStacks: {
     columns: {
       name: f.companyName(),
-      emoji: f.valuesFromArray({ values: ['⚡', '🌐', '☁️', '📱', '🛠️'] }),
       description: f.loremIpsum({ sentencesCount: 1 }),
       categories: f.default({
         defaultValue: { Frontend: ['React', 'Astro'], Backend: ['Bun', 'Hono'], Database: ['SQLite'] },

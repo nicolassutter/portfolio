@@ -33,24 +33,50 @@ export const prerender = false
     role='main'
     class=''
   >
-    <section class='grid md:flex gap-6'>
-      <Image
-        src='/avatar.jpg'
-        alt=''
-        width={320}
-        height={320}
-        class='rounded-full shadow-lg shrink-0 object-cover size-48 lg:size-64'
-        loading='eager'
-        decoding='async'
+    <section class='relative grid items-center gap-10 overflow-hidden rounded-3xl border border-border bg-card p-6 md:p-10 lg:grid-cols-[minmax(0,1fr)_16rem]'>
+      <div
+        aria-hidden='true'
+        class='pointer-events-none absolute inset-0 -z-0 opacity-30 [background-image:linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] [background-size:2rem_2rem]'
       />
 
-      <div class='flex flex-col gap-4'>
-        <Typography tag='h1'>{profile.name}</Typography>
+      <div class='relative order-2 flex flex-col gap-5 lg:order-1'>
+        <div>
+          <Typography
+            tag='h1'
+            class='text-5xl tracking-tight md:text-6xl'
+          >
+            {profile.name}
+          </Typography>
+          <p class='mt-3 text-xl font-medium text-primary'>
+            I build thoughtful software for the web.
+          </p>
+        </div>
         <div
           class='text-foreground/85 leading-relaxed'
           set:html={bio}
         />
+        <div>
+          <Button
+            href='/projects'
+            as='a'
+            variant='primary'
+            class='group'
+          >
+            View projects
+            <ArrowRightIcon class='transition-transform group-hover:translate-x-1' />
+          </Button>
+        </div>
       </div>
+
+      <Image
+        src='/avatar.jpg'
+        alt={`Portrait of ${profile.name ?? 'Nicolas'}`}
+        width={320}
+        height={320}
+        class='relative order-1 aspect-square w-40 justify-self-center rounded-2xl object-cover shadow-lg md:w-48 lg:order-2 lg:w-52'
+        loading='eager'
+        decoding='async'
+      />
     </section>
 
     <!-- Skills -->
@@ -58,10 +84,7 @@ export const prerender = false
       <Typography tag='h2'>Stacks I work with:</Typography>
 
       <div class='mt-6'>
-        <StackExplorer
-          client:load
-          {techStacks}
-        />
+        <StackExplorer {techStacks} />
       </div>
     </section>
 
