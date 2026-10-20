@@ -2,9 +2,8 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "strict": true,
-    "baseUrl": ".",
     "paths": {
-      "~/*": ["*"]
+      "~/*": ["./*"]
     },
     "verbatimModuleSyntax": true
   }

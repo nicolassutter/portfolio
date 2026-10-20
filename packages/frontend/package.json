@@ -2,13 +2,15 @@
   "name": "@example/basics",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "^24.0.0"
   },
   "scripts": {
     "dev": "bunx --bun astro dev --host",
     "build": "bunx astro build",
-    "astro": "bunx --bun astro"
+    "astro": "bunx --bun astro",
+    "typecheck": "bunx astro sync && bunx golar typecheck"
   },
   "dependencies": {
     "@ark-ui/vue": "^5.39.3",
@@ -34,12 +36,15 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@golar/astro": "^0.1.11",
+    "@golar/vue": "^0.1.11",
     "@iconify-json/grommet-icons": "^1.2.4",
     "@iconify-json/lucide": "^1.2.146",
     "@types/bun": "^1.2.18",
     "@types/node": "^26.6.5",
     "astro": "7.4.1",
+    "golar": "^0.1.11",
     "type-fest": "^5.10.0",
-    "typescript": "6"
+    "typescript": "^7.0.2"
   }
 }
