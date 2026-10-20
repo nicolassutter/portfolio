@@ -25,6 +25,11 @@ export default defineConfig({
         '~/*': __dirname,
       },
     },
+    build: {
+      rolldownOptions: {
+        external: ['drizzle-orm/sqlite-core']
+      },
+    },
     plugins: [tailwindcss()],
   },
 
