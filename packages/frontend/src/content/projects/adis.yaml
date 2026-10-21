@@ -1,0 +1,18 @@
+id: 6649c27c-fb8b-4f88-ae47-023839138575
+title: 'ADIS: Front-End Architecture'
+link: null
+technologies:
+  - TypeScript
+  - Vue.js
+  - Storybook
+  - Vitest
+  - Playwright
+  - Jenkins
+  - Monorepo
+description: |-
+  As Software Architect at ADIS, I led the design of scalable front-end solutions and maintained a shared Vue.js component library used across more than 40 internal business applications.
+
+  I provided architectural guidance across front-end projects, strengthened the component-development workflow with Storybook, Vitest, Playwright, and Jenkins, and helped teams improve consistency, performance, and maintainability in a monorepo environment.
+thumbnail: null
+dateCreated: null
+dateUpdated: '2026-10-21T00:00:00Z'

@@ -3,46 +3,31 @@ import slugify from 'slugify'
 import Button from './Button.vue'
 import { cn } from '../modules/utils'
 import type { Post } from '../modules/content'
+import Typography from '../components/Typography.vue'
 
 defineProps<{
   post: Post
   class?: string | undefined
 }>()
-
-// mirrors of the pre-migration `Typography` inline classes —
-// a Vue island can't import the old components
-const typographyH3 = 'text-2xl font-semibold text-foreground'
-const typographyP = 'text-base'
 </script>
 
 <template>
-  <article
-    :class="
-      cn(
-        'relative p-4 bg-card text-card-foreground rounded-xl border border-border py-6 focus-within:ring-1 focus-within:ring-ring group grid gap-3 content-start',
-        $props.class,
-      )
-    "
-  >
-    <img
-      v-if="post.thumbnail"
-      :src="post.thumbnail"
-      alt=""
-      class="rounded-lg w-full aspect-video object-cover"
-    />
+  <article :class="cn(
+    'relative p-4 bg-card text-card-foreground rounded-xl border border-border py-6 focus-within:ring-1 focus-within:ring-ring group grid gap-3 content-start',
+    $props.class,
+  )
+    ">
+    <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="rounded-lg w-full aspect-video object-cover" />
 
-    <h3 :class="cn(typographyH3, 'group-hover:text-primary')">
+    <Typography tag="h3" class="group-hover:text-primary">
       {{ post.title }}
-    </h3>
-    <p :class="cn(typographyP, 'text-muted-foreground')">
-      {{ post.excerpt }}
-    </p>
+    </Typography>
 
-    <Button
-      as="a"
-      :href="`/blog/${slugify(post.title!, { lower: true })}/${post.id}`"
-      class="before:absolute before:inset-0 h-0 w-0 block opacity-0 p-0"
-    >
+    <Typography class="text-muted-foreground">
+      {{ post.excerpt }}
+    </Typography>
+
+    <Button as="a" :href="`/blog/${slugify(post.title!, { lower: true })}/${post.id}`" class="sr-only">
       Read
     </Button>
   </article>
