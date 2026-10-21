@@ -9,6 +9,7 @@ import { ArrowRight as ArrowRightIcon } from '@lucide/vue'
 import { getAllPosts, getProfile, getTechStacks } from '../modules/content'
 import BlogPost from '../components/BlogPosts.vue'
 import StackExplorer from '../components/StackExplorer.vue'
+import ProfileBio from '../components/ProfileBio.vue'
 
 const [posts, profile, techStacks] = await Promise.all([
   getAllPosts(),
@@ -50,9 +51,9 @@ const bio = await md.parse(profile.bio ?? '')
             I build thoughtful software for the web.
           </p>
         </div>
-        <div
-          class='text-foreground/85 leading-relaxed'
-          set:html={bio}
+        <ProfileBio
+          content={bio}
+          client:load
         />
         <div>
           <Button
@@ -82,7 +83,7 @@ const bio = await md.parse(profile.bio ?? '')
 
     <!-- Skills -->
     <section class='mt-16'>
-      <Typography tag='h2'>Stacks I work with:</Typography>
+      <Typography tag='h2'>Stacks I work with</Typography>
 
       <div class='mt-6'>
         <StackExplorer {techStacks} />
