@@ -21,10 +21,13 @@ const url = new URL(`${getPostUrl(post)}/`, Astro.site).href
 
 <Layout
   meta={{
-    title: profile.name ?? '',
+    title: post.title,
     description: post.excerpt ?? '',
-    image: '/avatar.jpg',
+    image: post.thumbnail,
     url,
+    type: 'article',
+    publishedTime: post.dateCreated,
+    modifiedTime: post.dateUpdated,
   }}
   contentContainerClasses='md:grid-cols-[auto_minmax(0,65ch)_auto]'
 >
