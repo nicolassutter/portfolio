@@ -14,7 +14,7 @@ const bio = await md.parse(profile.bio ?? '')
     title: profile.name ?? '',
     description: bio,
     image: '/avatar.jpg',
-    url: 'https://sutter-nicolas.com/',
+    url: new URL(Astro.url.pathname, Astro.site).href,
   }}
 >
   <BlogListing

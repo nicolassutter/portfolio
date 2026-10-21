@@ -26,10 +26,12 @@ export interface Props {
 
 const profile = await getProfile()
 const { contentContainerClasses } = Astro.props
+const siteUrl = Astro.site ?? Astro.url.origin
+const siteHostname = new URL(siteUrl).hostname
 const meta = {
   description: profile.bio,
   image: '/avatar.jpg',
-  url: 'https://sutter-nicolas.com',
+  url: siteUrl,
   title: profile.name,
   ...(Astro.props.meta ?? {}),
 }
@@ -105,7 +107,7 @@ const meta = {
         src={`${PUBLIC_UMAMI_HOST_URL}/script.js`}
         data-website-id={PUBLIC_UMAMI_WEBSITE_ID}
         data-host-url={PUBLIC_UMAMI_HOST_URL}
-        data-domains='sutter-nicolas.com,www.sutter-nicolas.com'
+        data-domains={`${siteHostname},www.${siteHostname}`}
         data-do-not-track='true'
       ></script>
     )}

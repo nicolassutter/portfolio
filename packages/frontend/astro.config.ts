@@ -8,6 +8,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
+  site: 'https://sutter-nicolas.com',
 
   env: {
     schema: {

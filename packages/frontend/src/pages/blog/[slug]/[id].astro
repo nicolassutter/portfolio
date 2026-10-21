@@ -2,13 +2,13 @@
 import Layout from '../../../layouts/Layout.astro'
 import { md } from '~/src/modules/markdown'
 import { getAllPosts, getProfile } from '~/src/modules/content'
+import { getPostSlug, getPostUrl } from '~/src/modules/posts'
 import Typography from '../../../components/Typography.vue'
-import slugify from 'slugify'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
   return posts.map((post) => ({
-    params: { slug: slugify(post.title, { lower: true }), id: post.id },
+    params: { slug: getPostSlug(post), id: post.id },
     props: { post },
   }))
 }
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const profile = await getProfile()
 const { post } = Astro.props
 const content = await md.parse(post.content ?? '')
-const url = `https://sutter-nicolas.com/blog/${slugify(post.title, { lower: true })}/${post.id}/`
+const url = new URL(`${getPostUrl(post)}/`, Astro.site).href
 ---
 
 <Layout

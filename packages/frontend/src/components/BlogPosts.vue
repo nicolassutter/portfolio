@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import slugify from 'slugify'
 import Button from './Button.vue'
 import { cn } from '../modules/utils'
 import type { Post } from '../modules/content'
+import { getPostUrl } from '../modules/posts'
 import Typography from '../components/Typography.vue'
 
 defineProps<{
@@ -27,7 +27,7 @@ defineProps<{
       {{ post.excerpt }}
     </Typography>
 
-    <Button as="a" :href="`/blog/${slugify(post.title!, { lower: true })}/${post.id}`" class="sr-only">
+    <Button as="a" :href="getPostUrl(post)" class="sr-only">
       Read
     </Button>
   </article>
