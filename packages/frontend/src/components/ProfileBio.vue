@@ -10,13 +10,22 @@ const expanded = ref(false)
 
 <template>
   <div>
-    <div id="profile-bio" :class="[
-      'bio prose max-w-none text-foreground/85 leading-relaxed',
-      { 'bio--collapsed': !expanded },
-    ]" v-html="content" />
+    <div
+      id="profile-bio"
+      :class="[
+        'bio prose max-w-none text-foreground/85 leading-relaxed',
+        { 'bio--collapsed': !expanded },
+      ]"
+      v-html="content"
+    />
 
-    <button type="button" class="mt-3 text-sm font-medium text-primary hover:underline" aria-controls="profile-bio"
-      :aria-expanded="expanded" @click="expanded = !expanded">
+    <button
+      type="button"
+      class="mt-3 text-sm font-medium text-primary hover:underline"
+      aria-controls="profile-bio"
+      :aria-expanded="expanded"
+      @click="expanded = !expanded"
+    >
       {{ expanded ? 'Show less' : 'Read full bio' }}
     </button>
   </div>

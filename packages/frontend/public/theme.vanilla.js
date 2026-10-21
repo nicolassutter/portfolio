@@ -22,7 +22,8 @@ window.applyTheme = function (theme) {
     theme === 'system' ? window.getSystemTheme() : theme
 }
 
-
-const savedTheme = /** @type {Theme} */(localStorage.getItem(window.themeKey) || window.defaultTheme)
+const savedTheme = /** @type {Theme} */ (
+  localStorage.getItem(window.themeKey) || window.defaultTheme
+)
 
 window.applyTheme(savedTheme)

@@ -12,14 +12,25 @@ defineProps<{
 </script>
 
 <template>
-  <article :class="cn(
-    'relative p-4 bg-card text-card-foreground rounded-xl border border-border py-6 focus-within:ring-1 focus-within:ring-ring group grid gap-3 content-start',
-    $props.class,
-  )
-    ">
-    <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="rounded-lg w-full aspect-video object-cover" />
+  <article
+    :class="
+      cn(
+        'relative p-4 bg-card text-card-foreground rounded-xl border border-border py-6 focus-within:ring-1 focus-within:ring-ring group grid gap-3 content-start',
+        $props.class,
+      )
+    "
+  >
+    <img
+      v-if="post.thumbnail"
+      :src="post.thumbnail"
+      alt=""
+      class="rounded-lg w-full aspect-video object-cover"
+    />
 
-    <Typography tag="h3" class="group-hover:text-primary">
+    <Typography
+      tag="h3"
+      class="group-hover:text-primary"
+    >
       {{ post.title }}
     </Typography>
 
@@ -27,7 +38,11 @@ defineProps<{
       {{ post.excerpt }}
     </Typography>
 
-    <Button as="a" :href="getPostUrl(post)" class="sr-only">
+    <Button
+      as="a"
+      :href="getPostUrl(post)"
+      class="sr-only"
+    >
       Read
     </Button>
   </article>

@@ -1,11 +1,11 @@
 ---
 {
-  "id": "f672d21f-1c0d-44ae-a08f-5aacb982dbbb",
-  "title": "Why I use Tailwind CSS",
-  "excerpt": "So... I have been using Tailwind CSS for about 4 years at this point and in this article I would like to present why I wouldn't want to write CSS any other way.",
-  "dateCreated": "2021-07-01T12:01:00Z",
-  "dateUpdated": "2025-07-16T13:52:53Z",
-  "thumbnail": "/assets/why-tailwindcss.png"
+  'id': 'f672d21f-1c0d-44ae-a08f-5aacb982dbbb',
+  'title': 'Why I use Tailwind CSS',
+  'excerpt': "So... I have been using Tailwind CSS for about 4 years at this point and in this article I would like to present why I wouldn't want to write CSS any other way.",
+  'dateCreated': '2021-07-01T12:01:00Z',
+  'dateUpdated': '2025-07-16T13:52:53Z',
+  'thumbnail': '/assets/why-tailwindcss.png',
 }
 ---
 
