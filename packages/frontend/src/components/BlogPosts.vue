@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Button from './Button.vue'
 import { cn } from '../modules/utils'
 import type { Post } from '../modules/content'
 import { getPostUrl } from '../modules/posts'
@@ -38,12 +37,11 @@ defineProps<{
       {{ post.excerpt }}
     </Typography>
 
-    <Button
-      as="a"
+    <a
       :href="getPostUrl(post)"
-      class="sr-only"
+      class="absolute inset-0 opacity-0"
     >
       Read
-    </Button>
+    </a>
   </article>
 </template>

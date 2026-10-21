@@ -10,8 +10,9 @@ defineProps<{
 <template>
   <section class="border-y border-border divide-y divide-border">
     <details
-      v-for="stack in techStacks"
+      v-for="(stack, index) in techStacks"
       :key="stack.id"
+      :open="index === 0"
       class="group py-5"
     >
       <summary

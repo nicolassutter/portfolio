@@ -1,3 +1,32 @@
+- id: 1d2c9c0b-45eb-4ce4-895a-6cbb85da77c8
+  name: AI Assisted Development
+  description: AI-assisted workflows focused on reliable, deterministic development
+  emoji: 🤖
+  categories:
+    Assistants:
+      - OpenCode Console
+      - OpenCode Go
+      - Codex
+      - Claude
+      - Omp
+      - Pi
+    Skills:
+      - https://github.com/mattpocock/skills
+      - https://github.com/nicolassutter/skills
+    LLM Tooling:
+      - oxlint
+      - oxfmt
+      - agent-browser
+    MCPs:
+      - Context7
+      - Figma MCP
+    Custom CLI Skills:
+      - jira-cli
+      - gh CLI
+      - glab CLI
+    Tooling:
+      - Custom development tools
+      - Deterministic LLM workflows
 - id: 385e2f7b-f7e3-47f9-a1e4-6a73f4ddc1bd
   name: Api Development
   description: RESTful APIs, GraphQL, and microservices
