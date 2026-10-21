@@ -1,16 +1,14 @@
-{
-  "id": "b9a8c3c1-2db7-4cba-9d96-222959a8e62b",
-  "title": "Lisa Effenberger - Portfolio",
-  "link": "https://lisaeffbrg.fr/",
-  "technologies": [
-    "TypeScript",
-    "SolidJS",
-    "Astro",
-    "Motion",
-    "Github Actions"
-  ],
-  "description": "Lisa's portoflio designed on Figma and developped with Astro. The main challenge was the animations which needed quite a bit of tinkering to play well with Astro view transitions. Everything is deployed via Github Actions to Infomaniak.",
-  "thumbnail": null,
-  "dateCreated": null,
-  "dateUpdated": "2025-07-16T15:29:24Z"
-}
+id: b9a8c3c1-2db7-4cba-9d96-222959a8e62b
+title: Lisa Effenberger - Portfolio
+link: https://lisaeffbrg.fr/
+technologies:
+  - TypeScript
+  - SolidJS
+  - Astro
+  - Motion
+  - Github Actions
+description: |-
+  A polished portfolio website built from a Figma design with Astro, SolidJS, and TypeScript. The project focused on integrating expressive motion with Astro view transitions and uses GitHub Actions for deployment to Infomaniak.
+thumbnail: null
+dateCreated: null
+dateUpdated: '2025-07-16T15:29:24Z'

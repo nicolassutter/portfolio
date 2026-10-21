@@ -1,18 +1,16 @@
-{
-  "id": "12ecfc51-0ddd-4e22-be5e-5b53eef94bf6",
-  "title": "CFC - Design System",
-  "link": null,
-  "technologies": [
-    "TypeScript",
-    "SolidJS",
-    "React",
-    "Storybook",
-    "Custom Elements",
-    "Zod",
-    "Github Actions"
-  ],
-  "description": "While working with **Alsacréations**, I had the opportunity to contribute to the development of the [CFC](https://www.cfcopies.com/) design system as its Lead Dev. My role was to develop, maintain the code and handle code reviews for other contributors. This was a particularly interesting project since we had to develop Custom Elements and they are still to this day quite painful to write and maintain, this is also while we opted for SolidJS for reactivity. I also set up the CI with Github Actions for automated releases and changelog generation.",
-  "thumbnail": null,
-  "dateCreated": null,
-  "dateUpdated": "2025-07-16T15:28:08Z"
-}
+id: 12ecfc51-0ddd-4e22-be5e-5b53eef94bf6
+title: CFC - Design System
+link: null
+technologies:
+  - TypeScript
+  - SolidJS
+  - React
+  - Storybook
+  - Custom Elements
+  - Zod
+  - Github Actions
+description: |-
+  As Lead Developer at **Alsacréations**, I led the development and maintenance of the [CFC](https://www.cfcopies.com/) design system. I shaped its SolidJS and Custom Elements architecture, reviewed contributions, and set up GitHub Actions for automated releases and changelogs, making the system easier to evolve and consume across products.
+thumbnail: null
+dateCreated: null
+dateUpdated: '2025-07-16T15:28:08Z'

@@ -1,28 +1,28 @@
-{
-  "id": "39df4e34-808e-4be7-a527-9ccb5d12853f",
-  "name": "Nicolas Sutter",
-  "email": "contact@sutter-nicolas.com",
-  "bio": "I am currently a **freelance full-stack software engineer** after 5 years of full-time web dev and a year as a **Lead Developer**.\n\n\nI love to discover new technologies (and the JS ecosystem changes every 2 minutes, so that's nice I guess 🙃).\n\nI also love making pizzas, but I am not sure it is relevant here. 🍕\n\nOn a more serious note, I am passionate about software and hardware as I love to solve problems and build things.\n\nI currently host my own home media server on Docker with Caddy and a whole lot of open source projets.\n\nI am looking for missions or full-time jobs opportunitites based on **React, Vue.js or SolidJS (❤️),  Node.js and TypeScript.**\n\nI believe to be a good fit for a team that values quality, performance and maintainability; especially with all the JS based tech coming out these days.",
-  "socials": [
-    {
-      "name": "Github",
-      "url": "https://github.com/nicolassutter",
-      "icon": "grommet-icons:github"
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/nicolas-sutter-abb18b188",
-      "icon": "grommet-icons:linkedin-option"
-    },
-    {
-      "name": "RSS",
-      "url": "/rss.xml",
-      "icon": "grommet-icons:rss"
-    },
-    {
-      "name": "Malt",
-      "url": "https://www.malt.fr/profile/nicolassutter1",
-      "icon": "/malt.svg"
-    }
-  ]
-}
+id: 39df4e34-808e-4be7-a527-9ccb5d12853f
+name: Nicolas Sutter
+email: contact@sutter-nicolas.com
+bio: |-
+  I am a **Technical Lead and freelance full-stack software engineer** based in Strasbourg, France. I design and deliver maintainable applications, from front-end architecture and design systems to APIs and developer tooling.
+
+  I currently provide technical leadership at Carrefour, where I help guide the evolution of a large-scale platform used by millions of people. My work combines architecture, team collaboration, code quality, and pragmatic modernisation of existing systems.
+
+  Previously, I led front-end architecture for a Vue.js component library shared across more than 40 applications, and have built accessible design systems, full-stack products, and developer platforms throughout my career.
+
+  I care deeply about accessibility, performance, and maintainability. I enjoy turning complex technical constraints into clear, scalable solutions, mentoring developers, and strengthening the tools and practices that help teams move with confidence.
+
+  My preferred stack includes **TypeScript, Vue/Nuxt, SolidJS, Node.js, and Go**. I am equally at home in monorepos, CI/CD pipelines, and open-source projects, and I keep exploring new technologies through personal projects and my self-hosted homelab.
+
+  I am interested in roles and missions where thoughtful technical leadership, strong engineering practices, and product impact matter.
+socials:
+  - name: Github
+    url: https://github.com/nicolassutter
+    icon: grommet-icons:github
+  - name: LinkedIn
+    url: https://www.linkedin.com/in/nicolas-sutter-abb18b188
+    icon: grommet-icons:linkedin-option
+  - name: RSS
+    url: /rss.xml
+    icon: grommet-icons:rss
+  - name: Malt
+    url: https://www.malt.fr/profile/nicolassutter1
+    icon: /malt.svg
